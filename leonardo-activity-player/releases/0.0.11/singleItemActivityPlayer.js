@@ -1,2 +1,2241 @@
-define((function(){return function(t){var e={};function n(r){if(e[r])return e[r].exports;var o=e[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(r,o,function(e){return t[e]}.bind(null,o));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=5)}([function(t,e,n){"use strict";n.r(e),n.d(e,"h",(function(){return a})),n.d(e,"createElement",(function(){return a})),n.d(e,"cloneElement",(function(){return p})),n.d(e,"createRef",(function(){return V})),n.d(e,"Component",(function(){return j})),n.d(e,"render",(function(){return W})),n.d(e,"rerender",(function(){return y})),n.d(e,"options",(function(){return o}));var r=function(){},o={},i=[],s=[];function a(t,e){var n,a,c,u,l=s;for(u=arguments.length;u-- >2;)i.push(arguments[u]);for(e&&null!=e.children&&(i.length||i.push(e.children),delete e.children);i.length;)if((a=i.pop())&&void 0!==a.pop)for(u=a.length;u--;)i.push(a[u]);else"boolean"==typeof a&&(a=null),(c="function"!=typeof t)&&(null==a?a="":"number"==typeof a?a=String(a):"string"!=typeof a&&(c=!1)),c&&n?l[l.length-1]+=a:l===s?l=[a]:l.push(a),n=c;var p=new r;return p.nodeName=t,p.children=l,p.attributes=null==e?void 0:e,p.key=null==e?void 0:e.key,void 0!==o.vnode&&o.vnode(p),p}function c(t,e){for(var n in e)t[n]=e[n];return t}function u(t,e){t&&("function"==typeof t?t(e):t.current=e)}var l="function"==typeof Promise?Promise.resolve().then.bind(Promise.resolve()):setTimeout;function p(t,e){return a(t.nodeName,c(c({},t.attributes),e),arguments.length>2?[].slice.call(arguments,2):t.children)}var d=/acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i,f=[];function h(t){!t._dirty&&(t._dirty=!0)&&1==f.push(t)&&(o.debounceRendering||l)(y)}function y(){for(var t;t=f.pop();)t._dirty&&R(t)}function m(t,e,n){return"string"==typeof e||"number"==typeof e?void 0!==t.splitText:"string"==typeof e.nodeName?!t._componentConstructor&&v(t,e.nodeName):n||t._componentConstructor===e.nodeName}function v(t,e){return t.normalizedNodeName===e||t.nodeName.toLowerCase()===e.toLowerCase()}function _(t){var e=c({},t.attributes);e.children=t.children;var n=t.nodeName.defaultProps;if(void 0!==n)for(var r in n)void 0===e[r]&&(e[r]=n[r]);return e}function g(t){var e=t.parentNode;e&&e.removeChild(t)}function b(t,e,n,r,o){if("className"===e&&(e="class"),"key"===e);else if("ref"===e)u(n,null),u(r,t);else if("class"!==e||o)if("style"===e){if(r&&"string"!=typeof r&&"string"!=typeof n||(t.style.cssText=r||""),r&&"object"==typeof r){if("string"!=typeof n)for(var i in n)i in r||(t.style[i]="");for(var i in r)t.style[i]="number"==typeof r[i]&&!1===d.test(i)?r[i]+"px":r[i]}}else if("dangerouslySetInnerHTML"===e)r&&(t.innerHTML=r.__html||"");else if("o"==e[0]&&"n"==e[1]){var s=e!==(e=e.replace(/Capture$/,""));e=e.toLowerCase().substring(2),r?n||t.addEventListener(e,I,s):t.removeEventListener(e,I,s),(t._listeners||(t._listeners={}))[e]=r}else if("list"!==e&&"type"!==e&&!o&&e in t){try{t[e]=null==r?"":r}catch(t){}null!=r&&!1!==r||"spellcheck"==e||t.removeAttribute(e)}else{var a=o&&e!==(e=e.replace(/^xlink:?/,""));null==r||!1===r?a?t.removeAttributeNS("http://www.w3.org/1999/xlink",e.toLowerCase()):t.removeAttribute(e):"function"!=typeof r&&(a?t.setAttributeNS("http://www.w3.org/1999/xlink",e.toLowerCase(),r):t.setAttribute(e,r))}else t.className=r||""}function I(t){return this._listeners[t.type](o.event&&o.event(t)||t)}var S=[],E=0,C=!1,P=!1;function B(){for(var t;t=S.shift();)o.afterMount&&o.afterMount(t),t.componentDidMount&&t.componentDidMount()}function N(t,e,n,r,o,i){E++||(C=null!=o&&void 0!==o.ownerSVGElement,P=null!=t&&!("__preactattr_"in t));var s=w(t,e,n,r,i);return o&&s.parentNode!==o&&o.appendChild(s),--E||(P=!1,i||B()),s}function w(t,e,n,r,o){var i=t,s=C;if(null!=e&&"boolean"!=typeof e||(e=""),"string"==typeof e||"number"==typeof e)return t&&void 0!==t.splitText&&t.parentNode&&(!t._component||o)?t.nodeValue!=e&&(t.nodeValue=e):(i=document.createTextNode(e),t&&(t.parentNode&&t.parentNode.replaceChild(i,t),A(t,!0))),i.__preactattr_=!0,i;var a,c,u=e.nodeName;if("function"==typeof u)return function(t,e,n,r){var o=t&&t._component,i=o,s=t,a=o&&t._componentConstructor===e.nodeName,c=a,u=_(e);for(;o&&!c&&(o=o._parentComponent);)c=o.constructor===e.nodeName;o&&c&&(!r||o._component)?(k(o,u,3,n,r),t=o.base):(i&&!a&&(H(i),t=s=null),o=O(e.nodeName,u,n),t&&!o.nextBase&&(o.nextBase=t,s=null),k(o,u,1,n,r),t=o.base,s&&t!==s&&(s._component=null,A(s,!1)));return t}(t,e,n,r);if(C="svg"===u||"foreignObject"!==u&&C,u=String(u),(!t||!v(t,u))&&(a=u,(c=C?document.createElementNS("http://www.w3.org/2000/svg",a):document.createElement(a)).normalizedNodeName=a,i=c,t)){for(;t.firstChild;)i.appendChild(t.firstChild);t.parentNode&&t.parentNode.replaceChild(i,t),A(t,!0)}var l=i.firstChild,p=i.__preactattr_,d=e.children;if(null==p){p=i.__preactattr_={};for(var f=i.attributes,h=f.length;h--;)p[f[h].name]=f[h].value}return!P&&d&&1===d.length&&"string"==typeof d[0]&&null!=l&&void 0!==l.splitText&&null==l.nextSibling?l.nodeValue!=d[0]&&(l.nodeValue=d[0]):(d&&d.length||null!=l)&&function(t,e,n,r,o){var i,s,a,c,u,l=t.childNodes,p=[],d={},f=0,h=0,y=l.length,v=0,_=e?e.length:0;if(0!==y)for(var b=0;b<y;b++){var I=l[b],S=I.__preactattr_;null!=(E=_&&S?I._component?I._component.__key:S.key:null)?(f++,d[E]=I):(S||(void 0!==I.splitText?!o||I.nodeValue.trim():o))&&(p[v++]=I)}if(0!==_)for(b=0;b<_;b++){var E;if(c=e[b],u=null,null!=(E=c.key))f&&void 0!==d[E]&&(u=d[E],d[E]=void 0,f--);else if(h<v)for(i=h;i<v;i++)if(void 0!==p[i]&&m(s=p[i],c,o)){u=s,p[i]=void 0,i===v-1&&v--,i===h&&h++;break}u=w(u,c,n,r),a=l[b],u&&u!==t&&u!==a&&(null==a?t.appendChild(u):u===a.nextSibling?g(a):t.insertBefore(u,a))}if(f)for(var b in d)void 0!==d[b]&&A(d[b],!1);for(;h<=v;)void 0!==(u=p[v--])&&A(u,!1)}(i,d,n,r,P||null!=p.dangerouslySetInnerHTML),function(t,e,n){var r;for(r in n)e&&null!=e[r]||null==n[r]||b(t,r,n[r],n[r]=void 0,C);for(r in e)"children"===r||"innerHTML"===r||r in n&&e[r]===("value"===r||"checked"===r?t[r]:n[r])||b(t,r,n[r],n[r]=e[r],C)}(i,e.attributes,p),C=s,i}function A(t,e){var n=t._component;n?H(n):(null!=t.__preactattr_&&u(t.__preactattr_.ref,null),!1!==e&&null!=t.__preactattr_||g(t),x(t))}function x(t){for(t=t.lastChild;t;){var e=t.previousSibling;A(t,!0),t=e}}var M=[];function O(t,e,n){var r,o=M.length;for(t.prototype&&t.prototype.render?(r=new t(e,n),j.call(r,e,n)):((r=new j(e,n)).constructor=t,r.render=T);o--;)if(M[o].constructor===t)return r.nextBase=M[o].nextBase,M.splice(o,1),r;return r}function T(t,e,n){return this.constructor(t,n)}function k(t,e,n,r,i){t._disable||(t._disable=!0,t.__ref=e.ref,t.__key=e.key,delete e.ref,delete e.key,void 0===t.constructor.getDerivedStateFromProps&&(!t.base||i?t.componentWillMount&&t.componentWillMount():t.componentWillReceiveProps&&t.componentWillReceiveProps(e,r)),r&&r!==t.context&&(t.prevContext||(t.prevContext=t.context),t.context=r),t.prevProps||(t.prevProps=t.props),t.props=e,t._disable=!1,0!==n&&(1!==n&&!1===o.syncComponentUpdates&&t.base?h(t):R(t,1,i)),u(t.__ref,t))}function R(t,e,n,r){if(!t._disable){var i,s,a,u=t.props,l=t.state,p=t.context,d=t.prevProps||u,f=t.prevState||l,h=t.prevContext||p,y=t.base,m=t.nextBase,v=y||m,g=t._component,b=!1,I=h;if(t.constructor.getDerivedStateFromProps&&(l=c(c({},l),t.constructor.getDerivedStateFromProps(u,l)),t.state=l),y&&(t.props=d,t.state=f,t.context=h,2!==e&&t.shouldComponentUpdate&&!1===t.shouldComponentUpdate(u,l,p)?b=!0:t.componentWillUpdate&&t.componentWillUpdate(u,l,p),t.props=u,t.state=l,t.context=p),t.prevProps=t.prevState=t.prevContext=t.nextBase=null,t._dirty=!1,!b){i=t.render(u,l,p),t.getChildContext&&(p=c(c({},p),t.getChildContext())),y&&t.getSnapshotBeforeUpdate&&(I=t.getSnapshotBeforeUpdate(d,f));var C,P,w=i&&i.nodeName;if("function"==typeof w){var x=_(i);(s=g)&&s.constructor===w&&x.key==s.__key?k(s,x,1,p,!1):(C=s,t._component=s=O(w,x,p),s.nextBase=s.nextBase||m,s._parentComponent=t,k(s,x,0,p,!1),R(s,1,n,!0)),P=s.base}else a=v,(C=g)&&(a=t._component=null),(v||1===e)&&(a&&(a._component=null),P=N(a,i,p,n||!y,v&&v.parentNode,!0));if(v&&P!==v&&s!==g){var M=v.parentNode;M&&P!==M&&(M.replaceChild(P,v),C||(v._component=null,A(v,!1)))}if(C&&H(C),t.base=P,P&&!r){for(var T=t,j=t;j=j._parentComponent;)(T=j).base=P;P._component=T,P._componentConstructor=T.constructor}}for(!y||n?S.push(t):b||(t.componentDidUpdate&&t.componentDidUpdate(d,f,I),o.afterUpdate&&o.afterUpdate(t));t._renderCallbacks.length;)t._renderCallbacks.pop().call(t);E||r||B()}}function H(t){o.beforeUnmount&&o.beforeUnmount(t);var e=t.base;t._disable=!0,t.componentWillUnmount&&t.componentWillUnmount(),t.base=null;var n=t._component;n?H(n):e&&(null!=e.__preactattr_&&u(e.__preactattr_.ref,null),t.nextBase=e,g(e),M.push(t),x(e)),u(t.__ref,null)}function j(t,e){this._dirty=!0,this.context=e,this.props=t,this.state=this.state||{},this._renderCallbacks=[]}function W(t,e,n){return N(n,t,{},!1,e,!1)}function V(){return{}}c(j.prototype,{setState:function(t,e){this.prevState||(this.prevState=this.state),this.state=c(c({},this.state),"function"==typeof t?t(this.state,this.props):t),e&&this._renderCallbacks.push(e),h(this)},forceUpdate:function(t){t&&this._renderCallbacks.push(t),R(this,2)},render:function(){}});var U={h:a,createElement:a,cloneElement:p,createRef:V,Component:j,render:W,rerender:y,options:o};e.default=U},function(t,e,n){"use strict";var r,o=this&&this.__extends||(r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(t,e)},function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)});Object.defineProperty(e,"__esModule",{value:!0});var i=function(t){this.launchId=t.launchId,this.type=t.type};e.EventArgs=i;var s=function(t){function e(e){var n=t.call(this,e)||this;return n.itemId=e.itemId,n.response=e.response,n}return o(e,t),e}(i);e.SubmitEventArgs=s;var a=function(t){function e(e){var n=t.call(this,e)||this;return n.playerInstance=e.playerInstance,n}return o(e,t),e}(i);e.ReadyEventArgs=a;var c=function(t){function e(e){var n=t.call(this,e)||this;return n.error=e.exception,n}return o(e,t),e}(i);e.ErrorEventArgs=c},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.EVENTS={READY:"ready",ERROR:"error",CHECK_ANSWER:"checkAnswer",RETRY:"retry",RESET:"reset",SUBMIT:"submit",HINT_CONSUMED:"hintConsumed",DESTROY:"destroy"}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.ButtonBarIcons={reset:"reset",checkMyWork:"checkMyWork",tryAgain:"tryAgain",showHint:"showHint",closeHint:"closeHint"}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(3);e.checkMyWorkBtn=[{id:r.ButtonBarIcons.checkMyWork,tooltip:"Check my work",className:"defaultBtn-check-mywork-icon",text:"Check my work",icon:{iconCls_left:"la la-tick"}},{id:r.ButtonBarIcons.tryAgain,tooltip:"Try Again",className:"defaultBtn-tryAgain",text:"Try again",icon:{iconCls_left:"la la-try-again"}}],e.hintsBtn=[{id:r.ButtonBarIcons.showHint,tooltip:"Hint",className:"defaultBtn-hint-icon",text:"Hint",icon:{iconCls_left:"la la-hintDefault"}},{id:r.ButtonBarIcons.closeHint,tooltip:"Close hint",className:"defaultBtn-hintEnabled-icon",text:"Hint",icon:{iconCls_left:"la la-hintDefault",iconCls_right:"la la-close"}}],e.resetBtn=[{id:r.ButtonBarIcons.reset,tooltip:"Reset",className:"defaultBtn-reset-icon",text:"Reset",icon:{iconCls_left:"la la-reset"}}]},function(t,e,n){t.exports=n(6)},function(t,e,n){"use strict";var r,o=this&&this.__extends||(r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(t,e)},function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)});Object.defineProperty(e,"__esModule",{value:!0});var i=n(7),s=n(0),a=n(9),c=function(t){function e(){var e=t.call(this)||this;return e.options=null,e}return o(e,t),e.prototype.init=function(e,n,r,o){t.prototype.init.call(this,e,n,r,o),this.options=o||(r instanceof HTMLElement?o:r)},e.prototype.render=function(t,e){try{if(!e){if(!this.container)throw new Error("Container not present to render Activity Player");e=this.container}s.render(s.h(a.SingleItemActivityComponent,{renderItemFuncProp:this.renderItem.bind(this),getItems:this.getItems.bind(this),launchId:t,eventMgr:this.eventMgr,options:this.options}),e)}catch(t){this.errorHandler(this.launchId,t)}},e.prototype.focalise=function(){this.getItems()[0].focalise()},e}(i.BaseActivityPlayer);e.default=c},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(8),o=n(2),i=n(1),s=function(){function t(){this.items=[],this.initializedItems=[],this.eventMgr=new LeonardoApp.EventEmitter}return t.prototype.init=function(t,e,n,s){var a=null;if(this.launchId=t,s?(this.container=n,a=s):n instanceof HTMLElement?this.container=n:a=n,a&&a.events)for(var c in a.events)this.subscribe(c,a.events[c]);try{for(var u=[],l=this,p=function(n){d.items[n]=new r.ItemApp;var o=a&&a.events?a.events:null,i=a&&a.playerConfig&&a.playerConfig.uiStyles?a.playerConfig.uiStyles:null,s=d.items[n].init(e[n],t,{events:o,uiStyle:i,eventMgr:l.eventMgr});u.push(s),s.then((function(){l.initializedItems[n]=l.items[n]}))},d=this,f=0;f<e.length;f++)p(f);Promise.all(u).then((function(e){if(a&&a.events&&a.events.ready){var n={launchId:t,type:o.EVENTS.READY,playerInstance:l};l.eventMgr.emit(o.EVENTS.READY,new i.ReadyEventArgs(n))}}))}catch(e){this.errorHandler(t,e)}},t.prototype.destroy=function(){this.currentItem.destroy(),this.currentItem=null,this.initializedItems=[],this.items=[],this.itemsAPI=null,this.attemptsAPI=null;var t={launchId:this.launchId,type:o.EVENTS.DESTROY};this.eventMgr.emit(o.EVENTS.DESTROY,new i.EventArgs(t))},t.prototype.renderItem=function(t,e){var n=this;return new Promise((function(r,o){if(n.initializedItems[t])n.items[t].render(e).then((function(){r(n.items[t])}));else var i=setInterval((function(){n.initializedItems[t]&&(clearInterval(i),n.currentItem=n.items[t],n.items[t].render(e).then((function(){r(n.items[t])})))}),50)}))},t.prototype.subscribe=function(t,e){this.eventMgr.on(t,e)},t.prototype.unsubscribe=function(t,e){this.eventMgr.off(t,e)},t.prototype.displayHints=function(){return this.getCurrentItem().showHints()},t.prototype.getItemCount=function(){return this.items.length},t.prototype.getItems=function(){return this.items},t.prototype.getCurrentItem=function(){return this.currentItem},t.prototype.getItem=function(t){return this.items[t]},t.prototype.save=function(t){},t.prototype.submit=function(t,e){this.getCurrentItem().submit(t,e)},t.prototype.retry=function(t){this.getCurrentItem().retry(t)},t.prototype.getResponses=function(){return{launchId:"<launchId>",items:[{itemId:"<itemId>",responseId:"<ResponseId>",maxScore:"<item-max-score>",gotScore:"<got-score>",status:"NotAttempted | InProgress | Submitted"}]}},t.prototype.errorHandler=function(t,e){var n={launchId:t,type:o.EVENTS.ERROR,exception:e};this.eventMgr.emit(o.EVENTS.ERROR,new i.ErrorEventArgs(n))},t}();e.BaseActivityPlayer=s},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(1),o=n(2),i=function(){function t(){this._initComplete=!1}return t.prototype.init=function(t,e,n){this.launchId=e,this.options=n,this.itemsAPI=LeonardoApp.Services.get("items"),this.attemptsAPI=LeonardoApp.Services.get("attempts"),n&&n.eventMgr&&(this.eventMgr=n.eventMgr);try{var r=this;return new Promise((function(e,n){r.fetchItemJSON(t).then((function(t){r.itemJSON=t;var e=r.getItemType(t);return r.loadItemPlayer(e)})).then((function(t){t.init?r.itemPlayer=t.init():r.itemPlayer=t,r._initComplete=!0,e()}))}))}catch(t){this.errorHandler(e,t)}},t.prototype.render=function(t){var e=this;try{this.options&&this.options.uiStyle&&(this.options.uiStyle.dimensions&&this.options.uiStyle.dimensions.includes("content")?this.options.uiStyle.height="expand":this.options.uiStyle.dimensions=this.options.uiStyle.dimensions&&this.options.uiStyle.dimensions.split("-")[0]+"-space");var n={config:this.itemJSON,events:this.options.callbacks,uiStyle:this.options.uiStyle,playerButtons:{visible:!1}};n.uiStyle.widgetStyles={"box-shadow":"none",border:"none"};var r=this;return new Promise((function(o,i){if(e._initComplete)r.itemPlayer.addWidget?r.itemPlayer=r.itemPlayer.addWidget("WB2",t,n):(r.itemPlayer=new r.itemPlayer,n.itemJSON=n.config,r.itemPlayer.initItem("WB2",t,n)),o();else var s=setInterval((function(){r._initComplete&&(clearInterval(s),r.itemPlayer.addWidget?r.itemPlayer=r.itemPlayer.addWidget("WB2",t,n):(r.itemPlayer=new r.itemPlayer,n.itemJSON=n.config,r.itemPlayer.initItem("WB2",t,n)),o())}),50)}))}catch(t){this.errorHandler(this.launchId,t)}},t.prototype.fetchItemJSON=function(t){try{var e=this;return new Promise((function(n,r){"object"==typeof t?n(t):"string"==typeof t&&e.itemsAPI.getItem(t).then((function(t){return n(t)}))}))}catch(t){this.errorHandler(this.launchId,t)}},t.prototype.getItemType=function(t){return t.type},t.prototype.loadItemPlayer=function(t){var e=LeonardoApp.ModuleLoader;return new Promise((function(n,r){e&&e.loadModule(t).then((function(t){return n(t)}))}))},t.prototype.save=function(t){},t.prototype.submit=function(t,e){try{var n=this.itemPlayer.score();this.itemPlayer.displayFeedback(n);var i={id:n.scoringId,launchId:this.launchId,score:[{itemId:this.itemJSON.leonardoId,maxScore:n.scoredJson.score,gotScore:n.scoredJson.gotScore}]};if(t)t(i);else{var s={launchId:this.launchId,type:o.EVENTS.CHECK_ANSWER,itemId:this.itemJSON.leonardoId,response:i};this.eventMgr.emit(1==e.isSubmit?o.EVENTS.SUBMIT:o.EVENTS.CHECK_ANSWER,new r.SubmitEventArgs(s))}}catch(t){this.errorHandler(this.launchId,t)}},t.prototype.getResponse=function(){return{launchId:"<launchId>",items:{itemId:"<itemId>",responseId:"<ResponseId>",maxScore:"<item-max-score>",gotScore:"<got-score>",status:"NotAttempted | InProgress | Submitted"}}},t.prototype.getResponses=function(){return{launchId:"<launchId>",items:[{itemId:"<itemId>",responseId:"<ResponseId>",maxScore:"<item-max-score>",gotScore:"<got-score>",status:"NotAttempted | InProgress | Submitted"}]}},t.prototype.retry=function(t){try{if(this.itemPlayer.clearFeedback(),t)t();else{var e={launchId:this.launchId,type:o.EVENTS.RETRY};this.eventMgr.emit(o.EVENTS.RETRY,new r.EventArgs(e))}}catch(t){this.errorHandler(this.launchId,t)}},t.prototype.reset=function(){try{this.itemPlayer.reset();var t={launchId:this.launchId,type:o.EVENTS.RESET};this.eventMgr.emit(o.EVENTS.RESET,new r.EventArgs(t))}catch(t){this.errorHandler(this.launchId,t)}},t.prototype.showHints=function(){return this.itemPlayer.displayHints(),-1},t.prototype.hideHints=function(){},t.prototype.hasHints=function(){return!0},t.prototype.remainingHints=function(){return 1},t.prototype.subscribe=function(t,e){},t.prototype.unsubscribe=function(t,e){},t.prototype.destroy=function(){try{this.itemPlayer.destroy()}catch(t){this.errorHandler(this.launchId,t)}},t.prototype.focalise=function(){try{this.itemPlayer.focalise()}catch(t){this.errorHandler(this.launchId,t)}},t.prototype.hide=function(){},t.prototype.show=function(){},t.prototype.errorHandler=function(t,e){var n={launchId:t,type:o.EVENTS.ERROR,exception:e};this.eventMgr.emit(o.EVENTS.ERROR,new r.ErrorEventArgs(n))},t}();e.ItemApp=i},function(t,e,n){"use strict";var r,o=this&&this.__extends||(r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(t,e)},function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)});Object.defineProperty(e,"__esModule",{value:!0});var i=n(0),s=n(10),a=n(3),c=n(4);n(11),n(12);var u=n(13),l=function(t){function e(e){var n=t.call(this,e)||this;return n.defaultButtonsArray=c.checkMyWorkBtn.concat(c.resetBtn),n.hiddenButtons=[a.ButtonBarIcons.tryAgain],n.state={isTryAgainEnabled:!1,isHintsAvailable:!1},n._item=n.props.getItems()[0],n}return o(e,t),e.prototype.render=function(t,e){var n,r="activity-player-container",o=t.options&&t.options.playerConfig;o.uiStyles&&(n=o.uiStyles);var a=o.buttons,c=!a||null==a.visible||a.visible;return c||(r+=" without-button-bar"),n&&n.dimensions&&"content-dim"==n.dimensions&&(r+=" ap-content-dim"),i.h("div",{class:r,style:this.getUiStyles(n)},i.h(s.ItemPlayerComponent,{uiStyles:n,isButtonBarVisible:c,item:this._item,renderItemFuncProp:t.renderItemFuncProp,setState:this.setState.bind(this)}),c&&i.h(u.ButtonBarComponent,{item:this._item,eventMgr:t.eventMgr,launchId:t.launchId}))},e.prototype.getUiStyles=function(t){var e="";if(t){var n=["border","box-shadow"],r=t;for(var o in r)n.indexOf(o)>=0&&(e+=o+":"+r[o]+";")}return e},e}(i.Component);e.SingleItemActivityComponent=l},function(t,e,n){"use strict";var r,o=this&&this.__extends||(r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(t,e)},function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)});Object.defineProperty(e,"__esModule",{value:!0});var i=n(0),s=function(t){function e(e){return t.call(this,e)||this}return o(e,t),e.prototype.componentDidMount=function(){var t=this;this.props.renderItemFuncProp(0,this.base).then((function(e){t._item=e,t.base.style.display="inline-block",t.base.classList.remove("item-loader"),setTimeout((function(){t._item.focalise()}),100)}))},e.prototype.render=function(t){var e="item-player-container item-loader",n=t.uiStyles;return n&&n.dimensions&&"content-dim"==n.dimensions&&(e+=" ip-content-dim"),i.h("div",{class:e})},e}(i.Component);e.ItemPlayerComponent=s},function(t,e,n){},function(t,e,n){},function(t,e,n){"use strict";var r,o=this&&this.__extends||(r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(t,e)},function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)});Object.defineProperty(e,"__esModule",{value:!0});var i=n(0),s=n(14),a=n(3),c=n(4),u=n(2),l=n(1),p=function(t){function e(e){var n=t.call(this,e)||this;return n.defaultButtonsArray=c.checkMyWorkBtn.concat(c.resetBtn),n.state={isTryAgainEnabled:!1},n._item=n.props.item,n.eventMgr=n.props.eventMgr,n.launchId=n.props.launchId,n}return o(e,t),e.prototype.createButtonJSX=function(t){return i.h(s.ButtonComponent,{id:t.id,leftIcon:t.icon?t.icon.iconCls_left:null,rightIcon:t.icon?t.icon.iconCls_right:null,label:t.text,tooltip:t.tooltip,onButtonClick:this.onClick.bind(this)})},e.prototype.createButtons=function(){var t=this,e=this.state.isTryAgainEnabled?a.ButtonBarIcons.checkMyWork:a.ButtonBarIcons.tryAgain,n=[],r=e.length>0?this.removeHiddenButtons(e):this.defaultButtonsArray;return r.map((function(e,o){n.push(t.createButtonJSX(e),o<r.length-1?i.h("div",{class:"vertical-seperator"}):null)})),n},e.prototype.onClick=function(t){var e=this,n=t.currentTarget.getAttribute("id");switch(a.ButtonBarIcons[n]){case a.ButtonBarIcons.checkMyWork:this._item.submit((function(t){if(t){var n={launchId:e.launchId,type:u.EVENTS.CHECK_ANSWER,itemId:e._item.leonardoId,response:t};e.eventMgr.emit(u.EVENTS.CHECK_ANSWER,new l.SubmitEventArgs(n))}e.setState({isTryAgainEnabled:!0})}),"");break;case a.ButtonBarIcons.reset:this._item.reset(),this.setState({isTryAgainEnabled:!1});break;case a.ButtonBarIcons.tryAgain:this._item.retry((function(t){if(t){var n={launchId:e.launchId,type:u.EVENTS.RETRY};e.eventMgr.emit(u.EVENTS.RETRY,new l.EventArgs(n))}e.setState({isTryAgainEnabled:!1})}));break;case a.ButtonBarIcons.showHint:case a.ButtonBarIcons.closeHint:}},e.prototype.removeHiddenButtons=function(t){return this.defaultButtonsArray.filter((function(e){return-1==t.indexOf(e.id)}))},e.prototype.render=function(){return i.h("div",{class:"buttons-container"},this.createButtons())},e}(i.Component);e.ButtonBarComponent=p},function(t,e,n){"use strict";var r,o=this&&this.__extends||(r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(t,e)},function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)});Object.defineProperty(e,"__esModule",{value:!0});var i=n(0);n(15);var s=function(t){function e(){return null!==t&&t.apply(this,arguments)||this}return o(e,t),e.prototype.render=function(t,e){return i.h("div",{id:t.id,class:"default-btn "+t.leftIcon,title:t.tooltip,onClick:function(e){return t.onButtonClick(e)}},i.h("span",{class:"default-btn-label"}," ",t.label," "),t.rightIcon&&i.h("span",{class:t.rightIcon}))},e}(i.Component);e.ButtonComponent=s},function(t,e,n){}]).default}));
+define(function() { return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/libs-base-activity-player/src/EventManager/event-args.ts":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/libs-base-activity-player/src/EventManager/event-args.ts ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = this && this.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var EventArgs =
+/** @class */
+function () {
+  function EventArgs(args) {
+    this.launchId = args.launchId;
+    this.type = args.type;
+  }
+
+  return EventArgs;
+}();
+
+exports.EventArgs = EventArgs;
+
+var SubmitEventArgs =
+/** @class */
+function (_super) {
+  __extends(SubmitEventArgs, _super);
+
+  function SubmitEventArgs(args) {
+    var _this = _super.call(this, args) || this;
+
+    _this.itemId = args.itemId;
+    _this.response = args.response;
+    return _this;
+  }
+
+  return SubmitEventArgs;
+}(EventArgs);
+
+exports.SubmitEventArgs = SubmitEventArgs;
+
+var ReadyEventArgs =
+/** @class */
+function (_super) {
+  __extends(ReadyEventArgs, _super);
+
+  function ReadyEventArgs(args) {
+    var _this = _super.call(this, args) || this;
+
+    _this.playerInstance = args.playerInstance;
+    return _this;
+  }
+
+  return ReadyEventArgs;
+}(EventArgs);
+
+exports.ReadyEventArgs = ReadyEventArgs;
+
+var ErrorEventArgs =
+/** @class */
+function (_super) {
+  __extends(ErrorEventArgs, _super);
+
+  function ErrorEventArgs(args) {
+    var _this = _super.call(this, args) || this;
+
+    _this.error = args.exception;
+    return _this;
+  }
+
+  return ErrorEventArgs;
+}(EventArgs);
+
+exports.ErrorEventArgs = ErrorEventArgs;
+
+/***/ }),
+
+/***/ "./node_modules/libs-base-activity-player/src/EventManager/event.enum.ts":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/libs-base-activity-player/src/EventManager/event.enum.ts ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EVENTS = {
+  READY: "ready",
+  ERROR: "error",
+  CHECK_ANSWER: "checkAnswer",
+  RETRY: "retry",
+  RESET: "reset",
+  SUBMIT: "submit",
+  HINT_CONSUMED: "hintConsumed",
+  DESTROY: "destroy"
+};
+
+/***/ }),
+
+/***/ "./node_modules/libs-base-activity-player/src/base-activity-player.ts":
+/*!****************************************************************************!*\
+  !*** ./node_modules/libs-base-activity-player/src/base-activity-player.ts ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var item_app_1 = __webpack_require__(/*! ./item-app */ "./node_modules/libs-base-activity-player/src/item-app.ts");
+
+var event_enum_1 = __webpack_require__(/*! ./EventManager/event.enum */ "./node_modules/libs-base-activity-player/src/EventManager/event.enum.ts");
+
+var event_args_1 = __webpack_require__(/*! ./EventManager/event-args */ "./node_modules/libs-base-activity-player/src/EventManager/event-args.ts");
+
+var BaseActivityPlayer =
+/** @class */
+function () {
+  function BaseActivityPlayer() {
+    this.items = []; // var to hold items whose init is complete
+
+    this.initializedItems = []; // Assigning Global Event Manager Object to a variable so that it can be accessed locally.
+
+    this.eventMgr = new LeonardoApp.EventEmitter();
+  }
+  /**
+   *
+   * allowed init params are ( launchId, items [, container] [, options] )
+   * container and options are optional params
+   * @param launchId
+   * @param items
+   * @param args1
+   * @param args2
+   * options: http://jsoneditoronline.org/?id=041bd0acb8ff4fa49dbe0c2c45bb0d78
+   */
+
+
+  BaseActivityPlayer.prototype.init = function (launchId, items, args1, args2) {
+    var options = null;
+    this.launchId = launchId;
+
+    if (args2) {
+      this.container = args1;
+      options = args2;
+    } else {
+      if (args1 instanceof HTMLElement) {
+        this.container = args1;
+      } else {
+        options = args1;
+      }
+    } // Subscribing to events handler provided by the Consumer App.
+
+
+    if (options && options.events) {
+      for (var event_1 in options.events) {
+        this.subscribe(event_1, options.events[event_1]);
+      }
+    }
+
+    try {
+      var itemInitPromiseArr = [];
+      var self_1 = this;
+
+      var _loop_1 = function (idx) {
+        this_1.items[idx] = new item_app_1.ItemApp();
+        var events = options && options.events ? options.events : null;
+        var uiStyles = options && options.playerConfig && options.playerConfig.uiStyles ? options.playerConfig.uiStyles : null;
+        var itemInitPromise = this_1.items[idx].init(items[idx], launchId, {
+          events: events,
+          uiStyle: uiStyles,
+          eventMgr: self_1.eventMgr
+        });
+        itemInitPromiseArr.push(itemInitPromise);
+        itemInitPromise.then(function () {
+          self_1.initializedItems[idx] = self_1.items[idx];
+        });
+      };
+
+      var this_1 = this; // todo: fill this.items using items attr
+      // init one itemApp for each item
+
+      for (var idx = 0; idx < items.length; idx++) {
+        _loop_1(idx);
+      }
+
+      Promise.all(itemInitPromiseArr).then(function (values) {
+        // trigger ready event
+        if (options && options.events && options.events.ready) {
+          var eventArgs = {
+            launchId: launchId,
+            type: event_enum_1.EVENTS.READY,
+            playerInstance: self_1
+          };
+          self_1.eventMgr.emit(event_enum_1.EVENTS.READY, new event_args_1.ReadyEventArgs(eventArgs));
+        }
+      });
+    } catch (exception) {
+      this.errorHandler(launchId, exception);
+    }
+  };
+
+  ;
+
+  BaseActivityPlayer.prototype.destroy = function () {
+    this.currentItem.destroy();
+    this.currentItem = null;
+    this.initializedItems = [];
+    this.items = [];
+    this.itemsAPI = null;
+    this.attemptsAPI = null;
+    var destroyEventArgs = {
+      launchId: this.launchId,
+      type: event_enum_1.EVENTS.DESTROY
+    };
+    this.eventMgr.emit(event_enum_1.EVENTS.DESTROY, new event_args_1.EventArgs(destroyEventArgs));
+  };
+
+  ;
+
+  BaseActivityPlayer.prototype.renderItem = function (index, container) {
+    var self = this;
+    return new Promise(function (resolve, reject) {
+      if (self.initializedItems[index]) {
+        // calls render function of itemApp instance belonging to the item to be rendererd
+        self.items[index].render(container).then(function () {
+          // sending itemApp instance to the Activity Player
+          resolve(self.items[index]);
+        });
+      } else {
+        // keep polling untill this.initializedItems[index] becomes available
+        var inv_1 = setInterval(function () {
+          if (self.initializedItems[index]) {
+            clearInterval(inv_1);
+            self.currentItem = self.items[index];
+            self.items[index].render(container).then(function () {
+              // sending itemApp instance to the Activity Player
+              resolve(self.items[index]);
+            });
+          }
+        }, 50);
+      }
+    });
+  };
+
+  ;
+
+  BaseActivityPlayer.prototype.subscribe = function (eventName, eventHandler) {
+    // Register an event handler fn.
+    this.eventMgr.on(eventName, eventHandler);
+  };
+
+  BaseActivityPlayer.prototype.unsubscribe = function (eventName, eventHandler) {
+    // Remove an event listener.
+    this.eventMgr.off(eventName, eventHandler);
+  };
+
+  BaseActivityPlayer.prototype.displayHints = function () {
+    return this.getCurrentItem().showHints();
+  };
+
+  BaseActivityPlayer.prototype.getItemCount = function () {
+    return this.items.length;
+  };
+
+  BaseActivityPlayer.prototype.getItems = function () {
+    // returns array of itemApp instances
+    return this.items;
+  };
+
+  BaseActivityPlayer.prototype.getCurrentItem = function () {
+    // return currentItem;
+    return this.currentItem;
+  };
+
+  BaseActivityPlayer.prototype.getItem = function (itemId) {
+    // returns the item object for given itenmId
+    // Returns Item Object
+    return this.items[itemId];
+  };
+
+  BaseActivityPlayer.prototype.save = function (callback) {// todo: saves user response to the Attempts Service
+    // loop on _itmes        
+    // call _item.save();
+    // end loop
+  };
+
+  BaseActivityPlayer.prototype.submit = function (callback, options) {
+    this.getCurrentItem().submit(callback, options); // options = {	consumeAttempt: true | false }
+    // loop on _itmes        
+    // call _item.submit( options );
+    // end loop
+  };
+
+  BaseActivityPlayer.prototype.retry = function (callback) {
+    this.getCurrentItem().retry(callback); // launch new attempt
+  };
+
+  BaseActivityPlayer.prototype.getResponses = function () {
+    // todo: Obtains an object containing responses for each Item.
+    // Returns Object
+    return {
+      "launchId": "<launchId>",
+      "items": [{
+        "itemId": "<itemId>",
+        "responseId": "<ResponseId>",
+        "maxScore": "<item-max-score>",
+        "gotScore": "<got-score>",
+        "status": "NotAttempted | InProgress | Submitted"
+      }]
+    };
+  }; // Error Handler to emit all error events from single point.
+
+
+  BaseActivityPlayer.prototype.errorHandler = function (launchId, exception) {
+    var errorEventArgs = {
+      launchId: launchId,
+      type: event_enum_1.EVENTS.ERROR,
+      exception: exception
+    };
+    this.eventMgr.emit(event_enum_1.EVENTS.ERROR, new event_args_1.ErrorEventArgs(errorEventArgs));
+  };
+
+  return BaseActivityPlayer;
+}();
+
+exports.BaseActivityPlayer = BaseActivityPlayer;
+
+/***/ }),
+
+/***/ "./node_modules/libs-base-activity-player/src/item-app.ts":
+/*!****************************************************************!*\
+  !*** ./node_modules/libs-base-activity-player/src/item-app.ts ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var event_args_1 = __webpack_require__(/*! ./EventManager/event-args */ "./node_modules/libs-base-activity-player/src/EventManager/event-args.ts");
+
+var event_enum_1 = __webpack_require__(/*! ./EventManager/event.enum */ "./node_modules/libs-base-activity-player/src/EventManager/event.enum.ts");
+
+var ItemApp =
+/** @class */
+function () {
+  function ItemApp() {
+    // init is an asynchronous process
+    // this flag helps itemApp determine whether init is complete or in progress
+    this._initComplete = false;
+  }
+
+  ItemApp.prototype.init = function (item, launchId, options) {
+    this.launchId = launchId;
+    this.options = options;
+    this.itemsAPI = LeonardoApp.Services.get("items");
+    this.attemptsAPI = LeonardoApp.Services.get("attempts");
+
+    if (options && options.eventMgr) {
+      this.eventMgr = options.eventMgr;
+    }
+
+    try {
+      var self_1 = this;
+      return new Promise(function (resolve, reject) {
+        self_1.fetchItemJSON(item).then(function (item) {
+          self_1.itemJSON = item; // loads the respective item renderer
+
+          var itemType = self_1.getItemType(item);
+          return self_1.loadItemPlayer(itemType);
+        }).then(function (Player) {
+          if (Player.init) {
+            self_1.itemPlayer = Player.init();
+          } else {
+            self_1.itemPlayer = Player;
+          }
+
+          self_1._initComplete = true;
+          resolve();
+        });
+      });
+    } catch (exception) {
+      this.errorHandler(launchId, exception);
+    }
+  };
+
+  ItemApp.prototype.render = function (container) {
+    var _this = this;
+
+    try {
+      if (this.options && this.options.uiStyle) {
+        if (this.options.uiStyle.dimensions && this.options.uiStyle.dimensions.includes('content')) {
+          this.options.uiStyle.height = "expand";
+        } else {
+          this.options.uiStyle.dimensions = this.options.uiStyle.dimensions && this.options.uiStyle.dimensions.split('-')[0] + "-space";
+        }
+      }
+
+      var options_1 = {
+        config: this.itemJSON,
+        events: this.options.callbacks,
+        uiStyle: this.options.uiStyle,
+        playerButtons: {
+          visible: false
+        }
+      };
+      options_1.uiStyle["widgetStyles"] = {
+        "box-shadow": "none",
+        "border": "none"
+      };
+      var self_2 = this;
+      return new Promise(function (resolve, reject) {
+        if (_this._initComplete) {
+          // render the item in container and call the callback when rendering is done
+          if (self_2.itemPlayer.addWidget) {
+            self_2.itemPlayer = self_2.itemPlayer.addWidget("WB2", container, options_1);
+          } else {
+            self_2.itemPlayer = new self_2.itemPlayer();
+            options_1.itemJSON = options_1.config;
+            self_2.itemPlayer.initItem("WB2", container, options_1);
+          }
+
+          resolve();
+        } else {
+          // waits for init (loading of item JSON and Player) of item to complete
+          var inv_1 = setInterval(function () {
+            if (self_2._initComplete) {
+              clearInterval(inv_1);
+
+              if (self_2.itemPlayer.addWidget) {
+                self_2.itemPlayer = self_2.itemPlayer.addWidget("WB2", container, options_1);
+              } else {
+                self_2.itemPlayer = new self_2.itemPlayer();
+                options_1.itemJSON = options_1.config;
+                self_2.itemPlayer.initItem("WB2", container, options_1);
+              } // render the item in container and call the callback when rendering is done
+
+
+              resolve();
+            }
+          }, 50);
+        }
+      });
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    }
+  };
+
+  ItemApp.prototype.fetchItemJSON = function (item) {
+    try {
+      var self_3 = this;
+      return new Promise(function (resolve, reject) {
+        if (typeof item == "object") {
+          resolve(item);
+        } else if (typeof item == "string") {
+          // uses this.itemsAPI to fetch item JSON
+          self_3.itemsAPI.getItem(item).then(function (item) {
+            return resolve(item);
+          });
+        }
+      });
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    }
+  };
+
+  ItemApp.prototype.getItemType = function (itemJSON) {
+    return itemJSON.type;
+  };
+
+  ItemApp.prototype.loadItemPlayer = function (type) {
+    var moduleLoader = LeonardoApp.ModuleLoader;
+    return new Promise(function (resolve, reject) {
+      moduleLoader && moduleLoader.loadModule(type).then(function (Player) {
+        return resolve(Player);
+      });
+    });
+  };
+
+  ItemApp.prototype.save = function (callback) {// todo: saves user response to the Attempts Service
+  };
+
+  ItemApp.prototype.submit = function (callback, options) {
+    try {
+      var score = this.itemPlayer.score();
+      this.itemPlayer.displayFeedback(score); // response object required by Submit/CheckMyWork Event Handler.
+
+      var response = {
+        id: score.scoringId,
+        launchId: this.launchId,
+        score: [{
+          itemId: this.itemJSON.leonardoId,
+          maxScore: score.scoredJson.score,
+          gotScore: score.scoredJson.gotScore
+        }]
+      };
+
+      if (callback) {
+        callback(response);
+      } else {
+        var eventArgs = {
+          launchId: this.launchId,
+          type: event_enum_1.EVENTS.CHECK_ANSWER,
+          itemId: this.itemJSON.leonardoId,
+          response: response
+        }; // TODO: options.isSubmit is a assumed key which is used to check whether submit button is clicked or check my work is clicked.
+
+        this.eventMgr.emit(options.isSubmit == true ? event_enum_1.EVENTS.SUBMIT : event_enum_1.EVENTS.CHECK_ANSWER, new event_args_1.SubmitEventArgs(eventArgs));
+      }
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    }
+  };
+
+  ItemApp.prototype.getResponse = function () {
+    // todo: Obtains an object containing response for this Item.
+    // Returns Object
+    return {
+      "launchId": "<launchId>",
+      "items": {
+        "itemId": "<itemId>",
+        "responseId": "<ResponseId>",
+        "maxScore": "<item-max-score>",
+        "gotScore": "<got-score>",
+        "status": "NotAttempted | InProgress | Submitted"
+      }
+    };
+  };
+
+  ItemApp.prototype.getResponses = function () {
+    // todo: Obtains an object containing response for this Item.
+    // Returns Object
+    return {
+      "launchId": "<launchId>",
+      "items": [{
+        "itemId": "<itemId>",
+        "responseId": "<ResponseId>",
+        "maxScore": "<item-max-score>",
+        "gotScore": "<got-score>",
+        "status": "NotAttempted | InProgress | Submitted"
+      }]
+    };
+  };
+
+  ItemApp.prototype.retry = function (callback) {
+    try {
+      // launch new attempt
+      this.itemPlayer.clearFeedback();
+
+      if (callback) {
+        callback();
+      } else {
+        var eventArgs = {
+          launchId: this.launchId,
+          type: event_enum_1.EVENTS.RETRY
+        };
+        this.eventMgr.emit(event_enum_1.EVENTS.RETRY, new event_args_1.EventArgs(eventArgs));
+      }
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    }
+  };
+
+  ItemApp.prototype.reset = function () {
+    try {
+      this.itemPlayer.reset();
+      var eventArgs = {
+        launchId: this.launchId,
+        type: event_enum_1.EVENTS.RESET
+      };
+      this.eventMgr.emit(event_enum_1.EVENTS.RESET, new event_args_1.EventArgs(eventArgs));
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    }
+  };
+
+  ItemApp.prototype.showHints = function () {
+    // display hints for the current item
+    // returns remaining hints count
+    this.itemPlayer.displayHints();
+    return -1;
+  };
+
+  ItemApp.prototype.hideHints = function () {// hide hints from the current item
+  };
+
+  ItemApp.prototype.hasHints = function () {
+    // returns if the current item has hints
+    return true;
+  };
+
+  ItemApp.prototype.remainingHints = function () {
+    // returns the count of remaining hints
+    return 1;
+  };
+
+  ItemApp.prototype.subscribe = function (eventName, eventHandler) {};
+
+  ItemApp.prototype.unsubscribe = function (eventName, eventHandler) {};
+
+  ItemApp.prototype.destroy = function () {
+    try {
+      this.itemPlayer.destroy();
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    } // TODO - destroy it's own private variables.
+
+  };
+
+  ItemApp.prototype.focalise = function () {
+    try {
+      this.itemPlayer.focalise();
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    }
+  };
+
+  ItemApp.prototype.hide = function () {};
+
+  ItemApp.prototype.show = function () {}; // Error Handler to emit all error events from single point.
+
+
+  ItemApp.prototype.errorHandler = function (launchId, exception) {
+    var errorEventArgs = {
+      launchId: launchId,
+      type: event_enum_1.EVENTS.ERROR,
+      exception: exception
+    };
+    this.eventMgr.emit(event_enum_1.EVENTS.ERROR, new event_args_1.ErrorEventArgs(errorEventArgs));
+  };
+
+  return ItemApp;
+}();
+
+exports.ItemApp = ItemApp;
+
+/***/ }),
+
+/***/ "./node_modules/preact/dist/preact.umd.js":
+/*!************************************************!*\
+  !*** ./node_modules/preact/dist/preact.umd.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? factory(exports) :
+	undefined;
+}(this, (function (exports) { 'use strict';
+
+	var VNode = function VNode() {};
+
+	var options = {};
+
+	var stack = [];
+
+	var EMPTY_CHILDREN = [];
+
+	function h(nodeName, attributes) {
+		var children = EMPTY_CHILDREN,
+		    lastSimple = void 0,
+		    child = void 0,
+		    simple = void 0,
+		    i = void 0;
+		for (i = arguments.length; i-- > 2;) {
+			stack.push(arguments[i]);
+		}
+		if (attributes && attributes.children != null) {
+			if (!stack.length) stack.push(attributes.children);
+			delete attributes.children;
+		}
+		while (stack.length) {
+			if ((child = stack.pop()) && child.pop !== undefined) {
+				for (i = child.length; i--;) {
+					stack.push(child[i]);
+				}
+			} else {
+				if (typeof child === 'boolean') child = null;
+
+				if (simple = typeof nodeName !== 'function') {
+					if (child == null) child = '';else if (typeof child === 'number') child = String(child);else if (typeof child !== 'string') simple = false;
+				}
+
+				if (simple && lastSimple) {
+					children[children.length - 1] += child;
+				} else if (children === EMPTY_CHILDREN) {
+					children = [child];
+				} else {
+					children.push(child);
+				}
+
+				lastSimple = simple;
+			}
+		}
+
+		var p = new VNode();
+		p.nodeName = nodeName;
+		p.children = children;
+		p.attributes = attributes == null ? undefined : attributes;
+		p.key = attributes == null ? undefined : attributes.key;
+
+		if (options.vnode !== undefined) options.vnode(p);
+
+		return p;
+	}
+
+	function extend(obj, props) {
+	  for (var i in props) {
+	    obj[i] = props[i];
+	  }return obj;
+	}
+
+	function applyRef(ref, value) {
+	  if (ref) {
+	    if (typeof ref == 'function') ref(value);else ref.current = value;
+	  }
+	}
+
+	var defer = typeof Promise == 'function' ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout;
+
+	function cloneElement(vnode, props) {
+	  return h(vnode.nodeName, extend(extend({}, vnode.attributes), props), arguments.length > 2 ? [].slice.call(arguments, 2) : vnode.children);
+	}
+
+	var NO_RENDER = 0;
+
+	var SYNC_RENDER = 1;
+
+	var FORCE_RENDER = 2;
+
+	var ASYNC_RENDER = 3;
+
+	var ATTR_KEY = '__preactattr_';
+
+	var IS_NON_DIMENSIONAL = /acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i;
+
+	var items = [];
+
+	function enqueueRender(component) {
+		if (!component._dirty && (component._dirty = true) && items.push(component) == 1) {
+			(options.debounceRendering || defer)(rerender);
+		}
+	}
+
+	function rerender() {
+		var p = void 0;
+		while (p = items.pop()) {
+			if (p._dirty) renderComponent(p);
+		}
+	}
+
+	function isSameNodeType(node, vnode, hydrating) {
+		if (typeof vnode === 'string' || typeof vnode === 'number') {
+			return node.splitText !== undefined;
+		}
+		if (typeof vnode.nodeName === 'string') {
+			return !node._componentConstructor && isNamedNode(node, vnode.nodeName);
+		}
+		return hydrating || node._componentConstructor === vnode.nodeName;
+	}
+
+	function isNamedNode(node, nodeName) {
+		return node.normalizedNodeName === nodeName || node.nodeName.toLowerCase() === nodeName.toLowerCase();
+	}
+
+	function getNodeProps(vnode) {
+		var props = extend({}, vnode.attributes);
+		props.children = vnode.children;
+
+		var defaultProps = vnode.nodeName.defaultProps;
+		if (defaultProps !== undefined) {
+			for (var i in defaultProps) {
+				if (props[i] === undefined) {
+					props[i] = defaultProps[i];
+				}
+			}
+		}
+
+		return props;
+	}
+
+	function createNode(nodeName, isSvg) {
+		var node = isSvg ? document.createElementNS('http://www.w3.org/2000/svg', nodeName) : document.createElement(nodeName);
+		node.normalizedNodeName = nodeName;
+		return node;
+	}
+
+	function removeNode(node) {
+		var parentNode = node.parentNode;
+		if (parentNode) parentNode.removeChild(node);
+	}
+
+	function setAccessor(node, name, old, value, isSvg) {
+		if (name === 'className') name = 'class';
+
+		if (name === 'key') {} else if (name === 'ref') {
+			applyRef(old, null);
+			applyRef(value, node);
+		} else if (name === 'class' && !isSvg) {
+			node.className = value || '';
+		} else if (name === 'style') {
+			if (!value || typeof value === 'string' || typeof old === 'string') {
+				node.style.cssText = value || '';
+			}
+			if (value && typeof value === 'object') {
+				if (typeof old !== 'string') {
+					for (var i in old) {
+						if (!(i in value)) node.style[i] = '';
+					}
+				}
+				for (var _i in value) {
+					node.style[_i] = typeof value[_i] === 'number' && IS_NON_DIMENSIONAL.test(_i) === false ? value[_i] + 'px' : value[_i];
+				}
+			}
+		} else if (name === 'dangerouslySetInnerHTML') {
+			if (value) node.innerHTML = value.__html || '';
+		} else if (name[0] == 'o' && name[1] == 'n') {
+			var useCapture = name !== (name = name.replace(/Capture$/, ''));
+			name = name.toLowerCase().substring(2);
+			if (value) {
+				if (!old) node.addEventListener(name, eventProxy, useCapture);
+			} else {
+				node.removeEventListener(name, eventProxy, useCapture);
+			}
+			(node._listeners || (node._listeners = {}))[name] = value;
+		} else if (name !== 'list' && name !== 'type' && !isSvg && name in node) {
+			try {
+				node[name] = value == null ? '' : value;
+			} catch (e) {}
+			if ((value == null || value === false) && name != 'spellcheck') node.removeAttribute(name);
+		} else {
+			var ns = isSvg && name !== (name = name.replace(/^xlink:?/, ''));
+
+			if (value == null || value === false) {
+				if (ns) node.removeAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase());else node.removeAttribute(name);
+			} else if (typeof value !== 'function') {
+				if (ns) node.setAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase(), value);else node.setAttribute(name, value);
+			}
+		}
+	}
+
+	function eventProxy(e) {
+		return this._listeners[e.type](options.event && options.event(e) || e);
+	}
+
+	var mounts = [];
+
+	var diffLevel = 0;
+
+	var isSvgMode = false;
+
+	var hydrating = false;
+
+	function flushMounts() {
+		var c = void 0;
+		while (c = mounts.shift()) {
+			if (options.afterMount) options.afterMount(c);
+			if (c.componentDidMount) c.componentDidMount();
+		}
+	}
+
+	function diff(dom, vnode, context, mountAll, parent, componentRoot) {
+		if (!diffLevel++) {
+			isSvgMode = parent != null && parent.ownerSVGElement !== undefined;
+
+			hydrating = dom != null && !(ATTR_KEY in dom);
+		}
+
+		var ret = idiff(dom, vnode, context, mountAll, componentRoot);
+
+		if (parent && ret.parentNode !== parent) parent.appendChild(ret);
+
+		if (! --diffLevel) {
+			hydrating = false;
+
+			if (!componentRoot) flushMounts();
+		}
+
+		return ret;
+	}
+
+	function idiff(dom, vnode, context, mountAll, componentRoot) {
+		var out = dom,
+		    prevSvgMode = isSvgMode;
+
+		if (vnode == null || typeof vnode === 'boolean') vnode = '';
+
+		if (typeof vnode === 'string' || typeof vnode === 'number') {
+			if (dom && dom.splitText !== undefined && dom.parentNode && (!dom._component || componentRoot)) {
+				if (dom.nodeValue != vnode) {
+					dom.nodeValue = vnode;
+				}
+			} else {
+				out = document.createTextNode(vnode);
+				if (dom) {
+					if (dom.parentNode) dom.parentNode.replaceChild(out, dom);
+					recollectNodeTree(dom, true);
+				}
+			}
+
+			out[ATTR_KEY] = true;
+
+			return out;
+		}
+
+		var vnodeName = vnode.nodeName;
+		if (typeof vnodeName === 'function') {
+			return buildComponentFromVNode(dom, vnode, context, mountAll);
+		}
+
+		isSvgMode = vnodeName === 'svg' ? true : vnodeName === 'foreignObject' ? false : isSvgMode;
+
+		vnodeName = String(vnodeName);
+		if (!dom || !isNamedNode(dom, vnodeName)) {
+			out = createNode(vnodeName, isSvgMode);
+
+			if (dom) {
+				while (dom.firstChild) {
+					out.appendChild(dom.firstChild);
+				}
+				if (dom.parentNode) dom.parentNode.replaceChild(out, dom);
+
+				recollectNodeTree(dom, true);
+			}
+		}
+
+		var fc = out.firstChild,
+		    props = out[ATTR_KEY],
+		    vchildren = vnode.children;
+
+		if (props == null) {
+			props = out[ATTR_KEY] = {};
+			for (var a = out.attributes, i = a.length; i--;) {
+				props[a[i].name] = a[i].value;
+			}
+		}
+
+		if (!hydrating && vchildren && vchildren.length === 1 && typeof vchildren[0] === 'string' && fc != null && fc.splitText !== undefined && fc.nextSibling == null) {
+			if (fc.nodeValue != vchildren[0]) {
+				fc.nodeValue = vchildren[0];
+			}
+		} else if (vchildren && vchildren.length || fc != null) {
+				innerDiffNode(out, vchildren, context, mountAll, hydrating || props.dangerouslySetInnerHTML != null);
+			}
+
+		diffAttributes(out, vnode.attributes, props);
+
+		isSvgMode = prevSvgMode;
+
+		return out;
+	}
+
+	function innerDiffNode(dom, vchildren, context, mountAll, isHydrating) {
+		var originalChildren = dom.childNodes,
+		    children = [],
+		    keyed = {},
+		    keyedLen = 0,
+		    min = 0,
+		    len = originalChildren.length,
+		    childrenLen = 0,
+		    vlen = vchildren ? vchildren.length : 0,
+		    j = void 0,
+		    c = void 0,
+		    f = void 0,
+		    vchild = void 0,
+		    child = void 0;
+
+		if (len !== 0) {
+			for (var i = 0; i < len; i++) {
+				var _child = originalChildren[i],
+				    props = _child[ATTR_KEY],
+				    key = vlen && props ? _child._component ? _child._component.__key : props.key : null;
+				if (key != null) {
+					keyedLen++;
+					keyed[key] = _child;
+				} else if (props || (_child.splitText !== undefined ? isHydrating ? _child.nodeValue.trim() : true : isHydrating)) {
+					children[childrenLen++] = _child;
+				}
+			}
+		}
+
+		if (vlen !== 0) {
+			for (var _i = 0; _i < vlen; _i++) {
+				vchild = vchildren[_i];
+				child = null;
+
+				var _key = vchild.key;
+				if (_key != null) {
+					if (keyedLen && keyed[_key] !== undefined) {
+						child = keyed[_key];
+						keyed[_key] = undefined;
+						keyedLen--;
+					}
+				} else if (min < childrenLen) {
+						for (j = min; j < childrenLen; j++) {
+							if (children[j] !== undefined && isSameNodeType(c = children[j], vchild, isHydrating)) {
+								child = c;
+								children[j] = undefined;
+								if (j === childrenLen - 1) childrenLen--;
+								if (j === min) min++;
+								break;
+							}
+						}
+					}
+
+				child = idiff(child, vchild, context, mountAll);
+
+				f = originalChildren[_i];
+				if (child && child !== dom && child !== f) {
+					if (f == null) {
+						dom.appendChild(child);
+					} else if (child === f.nextSibling) {
+						removeNode(f);
+					} else {
+						dom.insertBefore(child, f);
+					}
+				}
+			}
+		}
+
+		if (keyedLen) {
+			for (var _i2 in keyed) {
+				if (keyed[_i2] !== undefined) recollectNodeTree(keyed[_i2], false);
+			}
+		}
+
+		while (min <= childrenLen) {
+			if ((child = children[childrenLen--]) !== undefined) recollectNodeTree(child, false);
+		}
+	}
+
+	function recollectNodeTree(node, unmountOnly) {
+		var component = node._component;
+		if (component) {
+			unmountComponent(component);
+		} else {
+			if (node[ATTR_KEY] != null) applyRef(node[ATTR_KEY].ref, null);
+
+			if (unmountOnly === false || node[ATTR_KEY] == null) {
+				removeNode(node);
+			}
+
+			removeChildren(node);
+		}
+	}
+
+	function removeChildren(node) {
+		node = node.lastChild;
+		while (node) {
+			var next = node.previousSibling;
+			recollectNodeTree(node, true);
+			node = next;
+		}
+	}
+
+	function diffAttributes(dom, attrs, old) {
+		var name = void 0;
+
+		for (name in old) {
+			if (!(attrs && attrs[name] != null) && old[name] != null) {
+				setAccessor(dom, name, old[name], old[name] = undefined, isSvgMode);
+			}
+		}
+
+		for (name in attrs) {
+			if (name !== 'children' && name !== 'innerHTML' && (!(name in old) || attrs[name] !== (name === 'value' || name === 'checked' ? dom[name] : old[name]))) {
+				setAccessor(dom, name, old[name], old[name] = attrs[name], isSvgMode);
+			}
+		}
+	}
+
+	var recyclerComponents = [];
+
+	function createComponent(Ctor, props, context) {
+		var inst = void 0,
+		    i = recyclerComponents.length;
+
+		if (Ctor.prototype && Ctor.prototype.render) {
+			inst = new Ctor(props, context);
+			Component.call(inst, props, context);
+		} else {
+			inst = new Component(props, context);
+			inst.constructor = Ctor;
+			inst.render = doRender;
+		}
+
+		while (i--) {
+			if (recyclerComponents[i].constructor === Ctor) {
+				inst.nextBase = recyclerComponents[i].nextBase;
+				recyclerComponents.splice(i, 1);
+				return inst;
+			}
+		}
+
+		return inst;
+	}
+
+	function doRender(props, state, context) {
+		return this.constructor(props, context);
+	}
+
+	function setComponentProps(component, props, renderMode, context, mountAll) {
+		if (component._disable) return;
+		component._disable = true;
+
+		component.__ref = props.ref;
+		component.__key = props.key;
+		delete props.ref;
+		delete props.key;
+
+		if (typeof component.constructor.getDerivedStateFromProps === 'undefined') {
+			if (!component.base || mountAll) {
+				if (component.componentWillMount) component.componentWillMount();
+			} else if (component.componentWillReceiveProps) {
+				component.componentWillReceiveProps(props, context);
+			}
+		}
+
+		if (context && context !== component.context) {
+			if (!component.prevContext) component.prevContext = component.context;
+			component.context = context;
+		}
+
+		if (!component.prevProps) component.prevProps = component.props;
+		component.props = props;
+
+		component._disable = false;
+
+		if (renderMode !== NO_RENDER) {
+			if (renderMode === SYNC_RENDER || options.syncComponentUpdates !== false || !component.base) {
+				renderComponent(component, SYNC_RENDER, mountAll);
+			} else {
+				enqueueRender(component);
+			}
+		}
+
+		applyRef(component.__ref, component);
+	}
+
+	function renderComponent(component, renderMode, mountAll, isChild) {
+		if (component._disable) return;
+
+		var props = component.props,
+		    state = component.state,
+		    context = component.context,
+		    previousProps = component.prevProps || props,
+		    previousState = component.prevState || state,
+		    previousContext = component.prevContext || context,
+		    isUpdate = component.base,
+		    nextBase = component.nextBase,
+		    initialBase = isUpdate || nextBase,
+		    initialChildComponent = component._component,
+		    skip = false,
+		    snapshot = previousContext,
+		    rendered = void 0,
+		    inst = void 0,
+		    cbase = void 0;
+
+		if (component.constructor.getDerivedStateFromProps) {
+			state = extend(extend({}, state), component.constructor.getDerivedStateFromProps(props, state));
+			component.state = state;
+		}
+
+		if (isUpdate) {
+			component.props = previousProps;
+			component.state = previousState;
+			component.context = previousContext;
+			if (renderMode !== FORCE_RENDER && component.shouldComponentUpdate && component.shouldComponentUpdate(props, state, context) === false) {
+				skip = true;
+			} else if (component.componentWillUpdate) {
+				component.componentWillUpdate(props, state, context);
+			}
+			component.props = props;
+			component.state = state;
+			component.context = context;
+		}
+
+		component.prevProps = component.prevState = component.prevContext = component.nextBase = null;
+		component._dirty = false;
+
+		if (!skip) {
+			rendered = component.render(props, state, context);
+
+			if (component.getChildContext) {
+				context = extend(extend({}, context), component.getChildContext());
+			}
+
+			if (isUpdate && component.getSnapshotBeforeUpdate) {
+				snapshot = component.getSnapshotBeforeUpdate(previousProps, previousState);
+			}
+
+			var childComponent = rendered && rendered.nodeName,
+			    toUnmount = void 0,
+			    base = void 0;
+
+			if (typeof childComponent === 'function') {
+
+				var childProps = getNodeProps(rendered);
+				inst = initialChildComponent;
+
+				if (inst && inst.constructor === childComponent && childProps.key == inst.__key) {
+					setComponentProps(inst, childProps, SYNC_RENDER, context, false);
+				} else {
+					toUnmount = inst;
+
+					component._component = inst = createComponent(childComponent, childProps, context);
+					inst.nextBase = inst.nextBase || nextBase;
+					inst._parentComponent = component;
+					setComponentProps(inst, childProps, NO_RENDER, context, false);
+					renderComponent(inst, SYNC_RENDER, mountAll, true);
+				}
+
+				base = inst.base;
+			} else {
+				cbase = initialBase;
+
+				toUnmount = initialChildComponent;
+				if (toUnmount) {
+					cbase = component._component = null;
+				}
+
+				if (initialBase || renderMode === SYNC_RENDER) {
+					if (cbase) cbase._component = null;
+					base = diff(cbase, rendered, context, mountAll || !isUpdate, initialBase && initialBase.parentNode, true);
+				}
+			}
+
+			if (initialBase && base !== initialBase && inst !== initialChildComponent) {
+				var baseParent = initialBase.parentNode;
+				if (baseParent && base !== baseParent) {
+					baseParent.replaceChild(base, initialBase);
+
+					if (!toUnmount) {
+						initialBase._component = null;
+						recollectNodeTree(initialBase, false);
+					}
+				}
+			}
+
+			if (toUnmount) {
+				unmountComponent(toUnmount);
+			}
+
+			component.base = base;
+			if (base && !isChild) {
+				var componentRef = component,
+				    t = component;
+				while (t = t._parentComponent) {
+					(componentRef = t).base = base;
+				}
+				base._component = componentRef;
+				base._componentConstructor = componentRef.constructor;
+			}
+		}
+
+		if (!isUpdate || mountAll) {
+			mounts.push(component);
+		} else if (!skip) {
+
+			if (component.componentDidUpdate) {
+				component.componentDidUpdate(previousProps, previousState, snapshot);
+			}
+			if (options.afterUpdate) options.afterUpdate(component);
+		}
+
+		while (component._renderCallbacks.length) {
+			component._renderCallbacks.pop().call(component);
+		}if (!diffLevel && !isChild) flushMounts();
+	}
+
+	function buildComponentFromVNode(dom, vnode, context, mountAll) {
+		var c = dom && dom._component,
+		    originalComponent = c,
+		    oldDom = dom,
+		    isDirectOwner = c && dom._componentConstructor === vnode.nodeName,
+		    isOwner = isDirectOwner,
+		    props = getNodeProps(vnode);
+		while (c && !isOwner && (c = c._parentComponent)) {
+			isOwner = c.constructor === vnode.nodeName;
+		}
+
+		if (c && isOwner && (!mountAll || c._component)) {
+			setComponentProps(c, props, ASYNC_RENDER, context, mountAll);
+			dom = c.base;
+		} else {
+			if (originalComponent && !isDirectOwner) {
+				unmountComponent(originalComponent);
+				dom = oldDom = null;
+			}
+
+			c = createComponent(vnode.nodeName, props, context);
+			if (dom && !c.nextBase) {
+				c.nextBase = dom;
+
+				oldDom = null;
+			}
+			setComponentProps(c, props, SYNC_RENDER, context, mountAll);
+			dom = c.base;
+
+			if (oldDom && dom !== oldDom) {
+				oldDom._component = null;
+				recollectNodeTree(oldDom, false);
+			}
+		}
+
+		return dom;
+	}
+
+	function unmountComponent(component) {
+		if (options.beforeUnmount) options.beforeUnmount(component);
+
+		var base = component.base;
+
+		component._disable = true;
+
+		if (component.componentWillUnmount) component.componentWillUnmount();
+
+		component.base = null;
+
+		var inner = component._component;
+		if (inner) {
+			unmountComponent(inner);
+		} else if (base) {
+			if (base[ATTR_KEY] != null) applyRef(base[ATTR_KEY].ref, null);
+
+			component.nextBase = base;
+
+			removeNode(base);
+			recyclerComponents.push(component);
+
+			removeChildren(base);
+		}
+
+		applyRef(component.__ref, null);
+	}
+
+	function Component(props, context) {
+		this._dirty = true;
+
+		this.context = context;
+
+		this.props = props;
+
+		this.state = this.state || {};
+
+		this._renderCallbacks = [];
+	}
+
+	extend(Component.prototype, {
+		setState: function setState(state, callback) {
+			if (!this.prevState) this.prevState = this.state;
+			this.state = extend(extend({}, this.state), typeof state === 'function' ? state(this.state, this.props) : state);
+			if (callback) this._renderCallbacks.push(callback);
+			enqueueRender(this);
+		},
+		forceUpdate: function forceUpdate(callback) {
+			if (callback) this._renderCallbacks.push(callback);
+			renderComponent(this, FORCE_RENDER);
+		},
+		render: function render() {}
+	});
+
+	function render(vnode, parent, merge) {
+	  return diff(merge, vnode, {}, false, parent, false);
+	}
+
+	function createRef() {
+		return {};
+	}
+
+	var preact = {
+		h: h,
+		createElement: h,
+		cloneElement: cloneElement,
+		createRef: createRef,
+		Component: Component,
+		render: render,
+		rerender: rerender,
+		options: options
+	};
+
+	exports.default = preact;
+	exports.h = h;
+	exports.createElement = h;
+	exports.cloneElement = cloneElement;
+	exports.createRef = createRef;
+	exports.Component = Component;
+	exports.render = render;
+	exports.rerender = rerender;
+	exports.options = options;
+
+	Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+//# sourceMappingURL=preact.umd.js.map
+
+
+/***/ }),
+
+/***/ "./src/components/activity-player/meta/button.config.ts":
+/*!**************************************************************!*\
+  !*** ./src/components/activity-player/meta/button.config.ts ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var button_enums_1 = __webpack_require__(/*! ../../button-bar/button.enums */ "./src/components/button-bar/button.enums.ts");
+
+exports.checkMyWorkBtn = [{
+  id: button_enums_1.ButtonBarIcons.checkMyWork,
+  tooltip: "Check my work",
+  className: "defaultBtn-check-mywork-icon",
+  text: "Check my work",
+  icon: {
+    iconCls_left: "la la-tick"
+  }
+}, {
+  id: button_enums_1.ButtonBarIcons.tryAgain,
+  tooltip: "Try Again",
+  className: "defaultBtn-tryAgain",
+  text: "Try again",
+  icon: {
+    iconCls_left: "la la-try-again"
+  }
+}];
+exports.hintsBtn = [{
+  id: button_enums_1.ButtonBarIcons.showHint,
+  tooltip: "Hint",
+  className: "defaultBtn-hint-icon",
+  text: "Hint",
+  icon: {
+    iconCls_left: "la la-hintDefault"
+  }
+}, {
+  id: button_enums_1.ButtonBarIcons.closeHint,
+  tooltip: "Close hint",
+  className: "defaultBtn-hintEnabled-icon",
+  text: "Hint",
+  icon: {
+    iconCls_left: "la la-hintDefault",
+    iconCls_right: "la la-close"
+  }
+}];
+exports.resetBtn = [{
+  id: button_enums_1.ButtonBarIcons.reset,
+  tooltip: "Reset",
+  className: "defaultBtn-reset-icon",
+  text: "Reset",
+  icon: {
+    iconCls_left: "la la-reset"
+  }
+}];
+
+/***/ }),
+
+/***/ "./src/components/activity-player/single-item-activity-player.tsx":
+/*!************************************************************************!*\
+  !*** ./src/components/activity-player/single-item-activity-player.tsx ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = this && this.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var base_activity_player_1 = __webpack_require__(/*! libs-base-activity-player/src/base-activity-player */ "./node_modules/libs-base-activity-player/src/base-activity-player.ts");
+
+var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.umd.js");
+
+var singleItemActivityPlayer_component_1 = __webpack_require__(/*! ./singleItemActivityPlayer.component */ "./src/components/activity-player/singleItemActivityPlayer.component.tsx");
+
+var SingleItemActivityPlayer =
+/** @class */
+function (_super) {
+  __extends(SingleItemActivityPlayer, _super);
+
+  function SingleItemActivityPlayer() {
+    var _this = _super.call(this) || this;
+
+    _this.options = null;
+    return _this;
+  }
+  /**
+  * allowed init params are ( launchId, items [, container] [, options] )
+  * container and options are optional params
+  * @param launchId
+  * @param items
+  * @param args1
+  * @param args2
+  */
+
+
+  SingleItemActivityPlayer.prototype.init = function (launchId, items, args1, args2) {
+    _super.prototype.init.call(this, launchId, items, args1, args2);
+
+    this.options = args2 ? args2 : args1 instanceof HTMLElement ? args2 : args1;
+  };
+
+  SingleItemActivityPlayer.prototype.render = function (launchId, container) {
+    try {
+      if (!container) {
+        if (!this.container) {
+          throw new Error('Container not present to render Activity Player');
+        } else {
+          container = this.container;
+        }
+      }
+
+      preact_1.render(preact_1.h(singleItemActivityPlayer_component_1.SingleItemActivityComponent, {
+        renderItemFuncProp: this.renderItem.bind(this),
+        getItems: this.getItems.bind(this),
+        launchId: launchId,
+        eventMgr: this.eventMgr,
+        options: this.options
+      }), container);
+    } catch (exception) {
+      this.errorHandler(this.launchId, exception);
+    }
+  };
+
+  SingleItemActivityPlayer.prototype.focalise = function () {
+    this.getItems()[0].focalise();
+  };
+
+  return SingleItemActivityPlayer;
+}(base_activity_player_1.BaseActivityPlayer);
+
+exports.default = SingleItemActivityPlayer;
+
+/***/ }),
+
+/***/ "./src/components/activity-player/singleItemActivityPlayer.component.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/components/activity-player/singleItemActivityPlayer.component.tsx ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = this && this.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.umd.js");
+
+var itemPlayer_component_1 = __webpack_require__(/*! ../item-player/itemPlayer.component */ "./src/components/item-player/itemPlayer.component.tsx");
+
+var button_enums_1 = __webpack_require__(/*! ../button-bar/button.enums */ "./src/components/button-bar/button.enums.ts");
+
+var button_config_1 = __webpack_require__(/*! ./meta/button.config */ "./src/components/activity-player/meta/button.config.ts");
+
+__webpack_require__(/*! ./../../style/index.less */ "./src/style/index.less");
+
+__webpack_require__(/*! ./styles/style.less */ "./src/components/activity-player/styles/style.less");
+
+var button_bar_component_1 = __webpack_require__(/*! ../button-bar/button-bar.component */ "./src/components/button-bar/button-bar.component.tsx");
+
+var SingleItemActivityComponent =
+/** @class */
+function (_super) {
+  __extends(SingleItemActivityComponent, _super);
+
+  function SingleItemActivityComponent(props) {
+    var _this = _super.call(this, props) || this; // Buttons visible at init.
+
+
+    _this.defaultButtonsArray = button_config_1.checkMyWorkBtn.concat(button_config_1.resetBtn); // Buttons that can be either hidden or visible as per user interaction.
+
+    _this.hiddenButtons = [button_enums_1.ButtonBarIcons.tryAgain];
+    _this.state = {
+      'isTryAgainEnabled': false,
+      'isHintsAvailable': false
+    };
+    _this._item = _this.props.getItems()[0];
+    return _this;
+  }
+
+  SingleItemActivityComponent.prototype.render = function (props, state) {
+    var activityContainerCls = "activity-player-container";
+    var uiStyles;
+    var playerConfig = props.options && props.options.playerConfig;
+    playerConfig.uiStyles && (uiStyles = playerConfig.uiStyles);
+    var playerBtns = playerConfig.buttons;
+    var isButtonBarVisible = playerBtns && playerBtns.visible != undefined ? playerBtns.visible : true;
+
+    if (!isButtonBarVisible) {
+      activityContainerCls += ' without-button-bar';
+    }
+
+    if (uiStyles && uiStyles.dimensions && uiStyles.dimensions == 'content-dim') {
+      activityContainerCls += ' ap-content-dim';
+    }
+
+    return preact_1.h("div", {
+      class: activityContainerCls,
+      style: this.getUiStyles(uiStyles)
+    }, preact_1.h(itemPlayer_component_1.ItemPlayerComponent, {
+      uiStyles: uiStyles,
+      isButtonBarVisible: isButtonBarVisible,
+      item: this._item,
+      renderItemFuncProp: props.renderItemFuncProp,
+      setState: this.setState.bind(this)
+    }), isButtonBarVisible && preact_1.h(button_bar_component_1.ButtonBarComponent, {
+      item: this._item,
+      eventMgr: props.eventMgr,
+      launchId: props.launchId
+    }));
+  };
+  /**
+  * The styles passed in playerConfig is converted in obj. and returned
+  * @param uiStyles passed in playerConfig
+  */
+
+
+  SingleItemActivityComponent.prototype.getUiStyles = function (styles) {
+    var activityPlayerStyles = "";
+
+    if (styles) {
+      var allowedUiStyle = ['border', 'box-shadow'];
+      var parsedStyles = styles;
+
+      for (var property in parsedStyles) {
+        if (allowedUiStyle.indexOf(property) >= 0) {
+          activityPlayerStyles += property + ":" + parsedStyles[property] + ";";
+        }
+      }
+    }
+
+    return activityPlayerStyles;
+  };
+
+  return SingleItemActivityComponent;
+}(preact_1.Component);
+
+exports.SingleItemActivityComponent = SingleItemActivityComponent;
+
+/***/ }),
+
+/***/ "./src/components/activity-player/styles/style.less":
+/*!**********************************************************!*\
+  !*** ./src/components/activity-player/styles/style.less ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/components/button-bar/button-bar.component.tsx":
+/*!************************************************************!*\
+  !*** ./src/components/button-bar/button-bar.component.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = this && this.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.umd.js");
+
+var button_component_1 = __webpack_require__(/*! ./button.component */ "./src/components/button-bar/button.component.tsx");
+
+var button_enums_1 = __webpack_require__(/*! ./button.enums */ "./src/components/button-bar/button.enums.ts");
+
+var button_config_1 = __webpack_require__(/*! ../activity-player/meta/button.config */ "./src/components/activity-player/meta/button.config.ts");
+
+var event_enum_1 = __webpack_require__(/*! libs-base-activity-player/src/EventManager/event.enum */ "./node_modules/libs-base-activity-player/src/EventManager/event.enum.ts");
+
+var event_args_1 = __webpack_require__(/*! libs-base-activity-player/src/EventManager/event-args */ "./node_modules/libs-base-activity-player/src/EventManager/event-args.ts");
+
+var ButtonBarComponent =
+/** @class */
+function (_super) {
+  __extends(ButtonBarComponent, _super);
+
+  function ButtonBarComponent(props) {
+    var _this = _super.call(this, props) || this; // Buttons visible at init.
+
+
+    _this.defaultButtonsArray = button_config_1.checkMyWorkBtn.concat(button_config_1.resetBtn);
+    _this.state = {
+      'isTryAgainEnabled': false
+    };
+    _this._item = _this.props.item;
+    _this.eventMgr = _this.props.eventMgr;
+    _this.launchId = _this.props.launchId;
+    return _this;
+  }
+
+  ButtonBarComponent.prototype.createButtonJSX = function (buttonConfig) {
+    return preact_1.h(button_component_1.ButtonComponent, {
+      id: buttonConfig.id,
+      leftIcon: buttonConfig.icon ? buttonConfig.icon.iconCls_left : null,
+      rightIcon: buttonConfig.icon ? buttonConfig.icon.iconCls_right : null,
+      label: buttonConfig.text,
+      tooltip: buttonConfig.tooltip,
+      onButtonClick: this.onClick.bind(this)
+    });
+  };
+
+  ButtonBarComponent.prototype.createButtons = function () {
+    var _this = this;
+
+    var hiddenButtons = this.state.isTryAgainEnabled ? button_enums_1.ButtonBarIcons.checkMyWork : button_enums_1.ButtonBarIcons.tryAgain;
+    var buttons = [];
+    var defaultButtonsArray = hiddenButtons.length > 0 ? this.removeHiddenButtons(hiddenButtons) : this.defaultButtonsArray;
+    defaultButtonsArray.map(function (value, index) {
+      buttons.push(_this.createButtonJSX(value), index < defaultButtonsArray.length - 1 ? preact_1.h("div", {
+        class: "vertical-seperator"
+      }) : null);
+    });
+    return buttons;
+  }; // Handling Button clicks by user and performing specific operations and API calls.
+
+
+  ButtonBarComponent.prototype.onClick = function (event) {
+    var _this = this;
+
+    var iconId = event.currentTarget.getAttribute("id");
+    var buttonType = button_enums_1.ButtonBarIcons[iconId];
+
+    switch (buttonType) {
+      case button_enums_1.ButtonBarIcons.checkMyWork:
+        {
+          this._item.submit(function (response) {
+            if (response) {
+              var eventArgs = {
+                launchId: _this.launchId,
+                type: event_enum_1.EVENTS.CHECK_ANSWER,
+                itemId: _this._item.leonardoId,
+                response: response
+              };
+
+              _this.eventMgr.emit(event_enum_1.EVENTS.CHECK_ANSWER, new event_args_1.SubmitEventArgs(eventArgs));
+            }
+
+            _this.setState({
+              'isTryAgainEnabled': true
+            });
+          }, '');
+
+          break;
+        }
+
+      case button_enums_1.ButtonBarIcons.reset:
+        {
+          this._item.reset();
+
+          this.setState({
+            'isTryAgainEnabled': false
+          });
+          break;
+        }
+
+      case button_enums_1.ButtonBarIcons.tryAgain:
+        {
+          this._item.retry(function (response) {
+            if (response) {
+              var eventArgs = {
+                launchId: _this.launchId,
+                type: event_enum_1.EVENTS.RETRY
+              };
+
+              _this.eventMgr.emit(event_enum_1.EVENTS.RETRY, new event_args_1.EventArgs(eventArgs));
+            }
+
+            _this.setState({
+              'isTryAgainEnabled': false
+            });
+          });
+
+          break;
+        }
+
+      case button_enums_1.ButtonBarIcons.showHint:
+        {
+          break;
+        }
+
+      case button_enums_1.ButtonBarIcons.closeHint:
+        {
+          break;
+        }
+    }
+  };
+
+  ButtonBarComponent.prototype.removeHiddenButtons = function (hiddenButtons) {
+    return this.defaultButtonsArray.filter(function (btn) {
+      return hiddenButtons.indexOf(btn["id"]) == -1;
+    });
+  };
+
+  ButtonBarComponent.prototype.render = function () {
+    return preact_1.h("div", {
+      class: "buttons-container"
+    }, this.createButtons());
+  };
+
+  return ButtonBarComponent;
+}(preact_1.Component);
+
+exports.ButtonBarComponent = ButtonBarComponent;
+
+/***/ }),
+
+/***/ "./src/components/button-bar/button.component.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/button-bar/button.component.tsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = this && this.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.umd.js");
+
+__webpack_require__(/*! ./styles/style.less */ "./src/components/button-bar/styles/style.less");
+
+var ButtonComponent =
+/** @class */
+function (_super) {
+  __extends(ButtonComponent, _super);
+
+  function ButtonComponent() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  ButtonComponent.prototype.render = function (props, state) {
+    return preact_1.h("div", {
+      id: props.id,
+      class: "default-btn " + props.leftIcon,
+      title: props.tooltip,
+      onClick: function (e) {
+        return props.onButtonClick(e);
+      }
+    }, preact_1.h("span", {
+      class: "default-btn-label"
+    }, " ", props.label, " "), props.rightIcon && preact_1.h("span", {
+      class: props.rightIcon
+    }));
+  };
+
+  return ButtonComponent;
+}(preact_1.Component);
+
+exports.ButtonComponent = ButtonComponent;
+
+/***/ }),
+
+/***/ "./src/components/button-bar/button.enums.ts":
+/*!***************************************************!*\
+  !*** ./src/components/button-bar/button.enums.ts ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ButtonBarIcons = {
+  reset: "reset",
+  checkMyWork: "checkMyWork",
+  tryAgain: "tryAgain",
+  showHint: "showHint",
+  closeHint: "closeHint"
+};
+
+/***/ }),
+
+/***/ "./src/components/button-bar/styles/style.less":
+/*!*****************************************************!*\
+  !*** ./src/components/button-bar/styles/style.less ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/components/item-player/itemPlayer.component.tsx":
+/*!*************************************************************!*\
+  !*** ./src/components/item-player/itemPlayer.component.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = this && this.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.umd.js");
+
+var ItemPlayerComponent =
+/** @class */
+function (_super) {
+  __extends(ItemPlayerComponent, _super);
+
+  function ItemPlayerComponent(props) {
+    return _super.call(this, props) || this;
+  }
+
+  ItemPlayerComponent.prototype.componentDidMount = function () {
+    var _this = this;
+
+    var uiStyles = this.props.uiStyles;
+    var renderPromsise = this.props.renderItemFuncProp(0, this.base);
+    renderPromsise.then(function (itemAppInstance) {
+      _this._item = itemAppInstance;
+      uiStyles && uiStyles.dimensions && uiStyles.dimensions == 'content-dim' && (_this.base.style.display = 'inline-block');
+
+      _this.base.classList.remove("item-loader");
+
+      setTimeout(function () {
+        _this._item.focalise();
+      }, 100);
+    });
+  };
+
+  ItemPlayerComponent.prototype.render = function (props) {
+    var itemPlayerContainerCls = "item-player-container item-loader";
+    var uiStyles = props.uiStyles;
+
+    if (uiStyles && uiStyles.dimensions && uiStyles.dimensions == 'content-dim') {
+      itemPlayerContainerCls += ' ip-content-dim';
+    }
+
+    return preact_1.h("div", {
+      class: itemPlayerContainerCls
+    });
+  };
+
+  return ItemPlayerComponent;
+}(preact_1.Component);
+
+exports.ItemPlayerComponent = ItemPlayerComponent;
+
+/***/ }),
+
+/***/ "./src/style/index.less":
+/*!******************************!*\
+  !*** ./src/style/index.less ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!**************************************************************************!*\
+  !*** multi ./src/components/activity-player/single-item-activity-player ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./src/components/activity-player/single-item-activity-player */"./src/components/activity-player/single-item-activity-player.tsx");
+
+
+/***/ })
+
+/******/ })["default"]});;
 //# sourceMappingURL=singleItemActivityPlayer.js.map
