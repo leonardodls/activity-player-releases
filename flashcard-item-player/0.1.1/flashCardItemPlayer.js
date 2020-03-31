@@ -49100,6 +49100,7 @@ box-sizing: border-box;
 padding: 7px;
 display: inline-block;
 width: 95%;
+border-width: ${props => props.theme.borderWidth};
 text-align: start;
 `;
 exports.default = Card;
@@ -49200,7 +49201,8 @@ class FlashCardPlayer {
                 color: 'red',
                 borderRadius: "7px",
                 borderStyle: 'solid',
-                borderWidth: '10px'
+                borderWidth: '1px',
+                borderColor: '#867f7f'
             };
             react_dom_1.default.render(react_1.default.createElement(react_intl_1.IntlProvider, { locale: navigator.language, defaultLocale: "en-US" },
                 react_1.default.createElement(styled_components_1.ThemeProvider, { theme: theme }, cardTemplate_factory_1.CardTemplateFactory.getTemplate(uid, playerJSON, container, initOptions))), container);
