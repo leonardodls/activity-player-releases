@@ -52404,7 +52404,7 @@ var FlashCardActivityComponent = /** @class */ (function (_super) {
         _this.stack = Swing.Stack(config);
         _this.stack.on('throwout', function (e) {
             e.target.classList.remove('in-deck');
-            e.target.hidden = true;
+            e.target.remove();
         });
         return _this;
     }
