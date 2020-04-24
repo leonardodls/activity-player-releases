@@ -2002,11 +2002,6 @@ var StackedCards = /** @class */ (function () {
         };
         this.eventEmitter = eventEmitter_1.default();
         this.isUndoInProgress = null;
-        this.gestureHandlers = {
-            gestureStart: this.gestureStart.bind(this),
-            gestureMove: this.gestureMove.bind(this),
-            gestureEnd: this.gestureEnd.bind(this)
-        };
         this.addGestures(obj);
     }
     /**
@@ -2500,6 +2495,7 @@ var StackedCards = /** @class */ (function () {
         }
     };
     StackedCards.prototype.gestureStart = function (evt) {
+        console.log("gestureStart", this.isTransitionInProgress, !this.gesturesEnabled);
         if (this.isTransitionInProgress || !this.gesturesEnabled) {
             evt.preventDefault();
             return;
@@ -2529,7 +2525,8 @@ var StackedCards = /** @class */ (function () {
     };
     ;
     StackedCards.prototype.gestureMove = function (evt) {
-        if (this.isTransitionInProgress || !this.gesturesEnabled) {
+        console.log("gestureMove", this.isTransitionInProgress, !this.gesturesEnabled);
+        if (this.isTransitionInProgress || !this.gesturesEnabled || !this.touchingElement) {
             evt.preventDefault();
             return;
         }
@@ -2568,11 +2565,9 @@ var StackedCards = /** @class */ (function () {
     };
     ;
     StackedCards.prototype.gestureEnd = function (evt) {
-        if (this.isTransitionInProgress || !this.gesturesEnabled) {
+        console.log("gestureEnd", this.isTransitionInProgress, !this.gesturesEnabled);
+        if (this.isTransitionInProgress || !this.gesturesEnabled || !this.touchingElement) {
             evt.preventDefault();
-            return;
-        }
-        if (!this.touchingElement) {
             return;
         }
         this.translateX = this.currentX - this.startX;
@@ -2616,16 +2611,18 @@ var StackedCards = /** @class */ (function () {
     };
     ;
     StackedCards.prototype.removeGestures = function () {
+        console.log("this.gesturesEnabled -> false");
         this.gesturesEnabled = false;
         setTimeout(function () {
+            console.log("this.gesturesEnabled -> true");
             this.gesturesEnabled = true;
         }.bind(this), 850);
     };
     StackedCards.prototype.addGestures = function (obe) {
         this.element = obe;
-        this.element.addEventListener('touchstart', this.gestureHandlers.gestureStart, false);
-        this.element.addEventListener('touchmove', this.gestureHandlers.gestureMove, false);
-        this.element.addEventListener('touchend', this.gestureHandlers.gestureEnd, false);
+        this.element.addEventListener('touchstart', this.gestureStart.bind(this), false);
+        this.element.addEventListener('touchmove', this.gestureMove.bind(this), false);
+        this.element.addEventListener('touchend', this.gestureEnd.bind(this), false);
     };
     // this.element.addEventListener('touchstart', this.gestureStart, false);
     // element.addEventListener('touchmove', this.gestureMove, false);
