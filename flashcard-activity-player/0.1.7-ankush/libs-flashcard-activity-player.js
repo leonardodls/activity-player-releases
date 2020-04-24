@@ -2182,36 +2182,35 @@ var StackedCards = /** @class */ (function () {
     };
     //Swipe active card to left.
     StackedCards.prototype.onSwipeLeft = function () {
+        console.log("onSwipeLeft");
         this.removeNoTransition();
+        this.onTransitionStart(this.currentPosition, true);
         this.transformUi(-1000, 0, 0, this.currentElementObj);
         if (this.useOverlays) {
             this.transformUi(-1000, 0, 0, this.leftObj); //Move leftOverlay
             this.transformUi(-1000, 0, 0, this.topObj); //Move topOverlay
             this.resetOverlayLeft();
         }
-        this.onTransitionStart(this.currentPosition);
-        this.postionElementToTop(this.currentElementObj);
         this.currentPosition = this.currentPosition + 1;
         this.updateUi();
         this.currentElement();
         // this.changeBackground();
         // this.changeStages();
         this.setActiveHidden();
-        this.isSectionOver();
         this.eventEmitter.trigger(enums_1.CARD_EVENTS.ITEM_NAVIGATON, { direction: NAVIGATION_TYPE.NEXT });
     };
     ;
     //Swipe active card to right.
     StackedCards.prototype.onSwipeRight = function () {
+        console.log("onSwipeRight");
         this.removeNoTransition();
+        this.onTransitionStart(this.currentPosition, true);
         this.transformUi(1000, 0, 0, this.currentElementObj);
         if (this.useOverlays) {
             this.transformUi(1000, 0, 0, this.rightObj); //Move rightOverlay
             this.transformUi(1000, 0, 0, this.topObj); //Move topOverlay
             this.resetOverlayRight();
         }
-        this.onTransitionStart(this.currentPosition);
-        this.postionElementToTop(this.currentElementObj);
         this.currentPosition = this.currentPosition + 1;
         this.updateUi();
         this.currentElement();
@@ -2223,7 +2222,9 @@ var StackedCards = /** @class */ (function () {
     ;
     //Swipe active card to top.
     StackedCards.prototype.onSwipeTop = function () {
+        console.log("onSwipeTop");
         this.removeNoTransition();
+        this.onTransitionStart(this.currentPosition);
         this.transformUi(0, -1000, 0, this.currentElementObj);
         if (this.useOverlays) {
             this.transformUi(0, -1000, 0, this.leftObj); //Move leftOverlay
@@ -2231,7 +2232,6 @@ var StackedCards = /** @class */ (function () {
             this.transformUi(0, -1000, 0, this.topObj); //Move topOverlay
             this.resetOverlays();
         }
-        this.onTransitionStart(this.currentPosition);
         this.currentPosition = this.currentPosition + 1;
         this.updateUi();
         this.currentElement();
@@ -2394,7 +2394,9 @@ var StackedCards = /** @class */ (function () {
     //Add translate X and Y to active card for each frame.
     StackedCards.prototype.transformUi = function (moveX, moveY, opacity, elementObj) {
         var _this = this;
+        console.log("transformUi");
         requestAnimationFrame(function () {
+            console.log("transformUi -> requestAnimationFrame");
             var element = elementObj;
             // Function to generate rotate value 
             function RotateRegulator(value) {
@@ -2434,7 +2436,9 @@ var StackedCards = /** @class */ (function () {
     //Action to update all elements on the DOM for each stacked card.
     StackedCards.prototype.updateUi = function () {
         var _this = this;
+        console.log("updateUi");
         requestAnimationFrame(function () {
+            console.log("updateUi -> requestAnimationFrame");
             _this.elTrans = 0;
             var elZindex = 5;
             var elScale = 1;
@@ -2581,6 +2585,8 @@ var StackedCards = /** @class */ (function () {
                 (this.translateY > 0) ? this.onUndoGesture() : null;
             }
             else if (this.translateY < (this.elementHeight * -1) && this.translateX > ((this.listElNodesWidth / 2) * -1) && this.translateX < (this.listElNodesWidth / 2)) { //is Top?
+                console.log("this.isTransitionInProgress -> true");
+                this.isTransitionInProgress = true;
                 this.removeGestures();
                 this.onSwipeTop();
                 // if(this.translateY < (this.elementHeight * -1) || (Math.abs(this.translateY) / this.timeTaken > this.velocity)){ // Did It Move To Top?
@@ -2590,6 +2596,8 @@ var StackedCards = /** @class */ (function () {
             }
             else {
                 if (this.translateX < 0) {
+                    console.log("this.isTransitionInProgress -> true");
+                    this.isTransitionInProgress = true;
                     this.removeGestures();
                     this.onSwipeLeft();
                     // if(this.translateX < ((this.listElNodesWidth / 2) * -1) || (Math.abs(this.translateX) / this.timeTaken > this.velocity)){ // Did It Move To Left?
@@ -2598,12 +2606,20 @@ var StackedCards = /** @class */ (function () {
                     // }
                 }
                 else if (this.translateX > 0) {
+                    console.log("this.isTransitionInProgress -> true");
+                    this.isTransitionInProgress = true;
                     this.removeGestures();
                     this.onSwipeRight();
                     // if (this.translateX > (this.listElNodesWidth / 2) && (Math.abs(this.translateX) / this.timeTaken > this.velocity)){ // Did It Move To Right?
                     // } else {
                     // 	this.backToMiddle();
                     // }
+                }
+                else if (this.translateY < 0) {
+                    console.log("this.isTransitionInProgress -> true");
+                    this.isTransitionInProgress = true;
+                    this.removeGestures();
+                    this.onSwipeTop();
                 }
             }
         }
@@ -2616,7 +2632,7 @@ var StackedCards = /** @class */ (function () {
         setTimeout(function () {
             console.log("this.gesturesEnabled -> true");
             this.gesturesEnabled = true;
-        }.bind(this), 850);
+        }.bind(this), 650);
     };
     StackedCards.prototype.addGestures = function (obe) {
         this.element = obe;
@@ -2667,13 +2683,10 @@ var StackedCards = /** @class */ (function () {
     };
     /**
      * @param ElementObj
-     * this function postion every swiped element to top.
+     * this function position every swiped element to top.
      */
-    StackedCards.prototype.postionElementToTop = function (ElementObj) {
-        var _this = this;
-        setTimeout(function () {
-            _this.transformUi(0, -1000, 0, ElementObj);
-        }, 400);
+    StackedCards.prototype.positionElementToTop = function (ElementObj) {
+        this.transformUi(0, -1000, 0, ElementObj);
     };
     /**
      * this function add EventListener of transitionend on element
@@ -2681,16 +2694,24 @@ var StackedCards = /** @class */ (function () {
      * after that is remove the transitionend event Listener from the element.
      * @param position
      */
-    StackedCards.prototype.onTransitionStart = function (position) {
+    StackedCards.prototype.onTransitionStart = function (position, isUserGesture) {
         var _this = this;
         //Event listener created to know when transition ends
-        this.listElNodesObj[position].addEventListener('transitionend', function (event) {
+        var callback = function (event) {
             if (event.propertyName == "transform") {
+                _this.listElNodesObj[position].removeEventListener('transitionend', callback, false);
+                if (isUserGesture) {
+                    _this.listElNodesObj[position].classList.add("no-transition");
+                    _this.listElNodesObj[position].style.webkitTransform = "translateX(0px) translateY(-1000px) translateZ(0) rotate(0deg)";
+                    _this.listElNodesObj[position].style.transform = "translateX(0px) translateY(-1000px) translateZ(0) rotate(0deg)";
+                    //this.positionElementToTop(this.listElNodesObj[position]);
+                    _this.listElNodesObj[position].classList.remove("no-transition");
+                }
                 _this.isTransitionInProgress = false;
-                _this.listElNodesObj[position].removeEventListener('transitionend', null, false);
                 _this.isSectionOver();
             }
-        });
+        };
+        this.listElNodesObj[position].addEventListener('transitionend', callback, false);
     };
     StackedCards.prototype.destroy = function () {
         while (this.listElNodesObj.length != 0) {
