@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://libs-presentation-card-item-player/./src/styles/index.less"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA","file":"libs-presentation-card-item-player.css","sourcesContent":[".presentation-card-container {\n  height: 100%;\n}\n.presentation-card-container .xhtml-viewer-container li {\n  padding-bottom: 30px;\n}\n"],"sourceRoot":""}
