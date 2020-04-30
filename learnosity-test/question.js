@@ -2,17 +2,18 @@
 LearnosityAmd.define([], function () {
   'use strict';
 
-  function CustomShorttext(init, lrnUtils) {
+  function LeonardoQuestion(init, lrnUtils) {
       this.init = init;
       this.lrnUtils = lrnUtils;
       this.question = init.question;
       this.$el = init.$el;
+      this.$el[0].html("Hello <b>world</b>!");
 
       init.events.trigger('ready');
   }
 
 
   return {
-      Question: CustomShorttext
+      Question: LeonardoQuestion
   };
 });
