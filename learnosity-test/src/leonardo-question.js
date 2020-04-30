@@ -1,7 +1,7 @@
-import { XAPIRunner } from "./libs/libs-frontend-xapi-3/dist/js/xapirunner";
 /*global LearnosityAmd*/
 LearnosityAmd.define([], function () {
     'use strict';
+    import { XAPIRunner } from "./libs/libs-frontend-xapi-3/dist/js/xapirunner";
     const state = { xapiLO1: XAPIRunner }
     let uniqueLOId = '1519132651151/1519132667943'; // Unique LO Id.
 
