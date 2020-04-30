@@ -1,0 +1,19 @@
+{
+  "name": "libs-frontend-xapi-3",
+  "version": "0.0.1",
+  "main": [
+    "dist/js/xapirunner.js"
+  ],
+  "dependencies": {},
+  "ignore": [
+    "**/.*",
+    "src",
+    "test"
+  ],
+  "devDependencies": {
+    "es6-promise": "4.1.1",
+    "ua-parser-js": "0.7.17",
+    "visibly.js": "0.1.0",
+    "babel-polyfill": "0.0.1"
+  }
+}
