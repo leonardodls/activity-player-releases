@@ -7,7 +7,7 @@ LearnosityAmd.define([], function () {
       this.lrnUtils = lrnUtils;
       this.question = init.question;
       this.$el = init.$el;
-      this.$el[0].html("Hello <b>world</b>!");
+      this.$el[0].innerHTML = "Learnosity <b>Demo</b>!";
 
       init.events.trigger('ready');
   }
