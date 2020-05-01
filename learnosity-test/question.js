@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("LearnosityAmd.define([], function () {\r\n    'use strict';\r\n\r\n    const bundle = __webpack_require__(/*! ./leonardo-question.js */ \"./src/leonardo-question.js\");\r\n    \r\n    return {\r\n        Question: bundle.default /*provide the player class reference*/\r\n    };\r\n\r\n});\n\n//# sourceURL=webpack:///./src/learnosity-wrapper.js?");
+eval("LearnosityAmd.define(['https://code.jquery.com/jquery-3.5.0.js'], function (udit) {\r\n    'use strict';\r\n\r\n    const bundle = __webpack_require__(/*! ./leonardo-question.js */ \"./src/leonardo-question.js\");\r\n    \r\n    return {\r\n        Question: bundle.default /*provide the player class reference*/\r\n    };\r\n\r\n});\n\n//# sourceURL=webpack:///./src/learnosity-wrapper.js?");
 
 /***/ }),
 
