@@ -1,44 +1,41 @@
 var consumerConfig = {
   "renderers": {
-    "overrides": [
-      {
-        "type": "activity",
-        "model": "bank",
-        "override": "test-player"
-      },
-      {
-        "type": "item",
-        "model": "spreadsheet-question",
-        "override": "spreadsheet-question-player"
-      },
-      {
-        "type": "item",
-        "model": "spreadsheet-presentation",
-        "override": "spreadsheet-presentation-player"
-      }
-    ],
     "modules": {
-      "test-player": {
-        "baseURL": "https://sdk-qa.leonardodls.com/modules/multi-item-activity-player/releases/",
-        "version": "0.0.28",
-        "js": "0.0.28/multiItemActivityPlayer",
-        "css": "0.0.28/multiItemActivityPlayer"
+      "flashcard-activity-player": {
+        "baseURL": "https://sdk-qa.leonardodls.com/modules/flashcard-activity-player/releases/",
+        "version": "0.0.9",
+        "js": "0.0.9/libs-flashcard-activity-player",
+        "css": "0.0.9/libs-flashcard-activity-player",
+        "dependencies": [
+          "react",
+          "react-dom"
+        ]
       },
-      "spreadsheet-question-player": {
-        "baseURL": "https://sdk-qa.leonardodls.com/modules/spreadsheet-question-player/releases/",
-        "version": "0.7.6",
-        "js": "0.7.6/libs-spr-question-item-player.min",
-        "css": "0.7.6/libs-spr-question-item-player.min",
-        "dependencies": ["jquery"]
+      "presentation-card-item-player": {
+        "baseURL": "https://sdk-qa.leonardodls.com/modules/presentation-card-item-player/releases/",
+        "version": "0.0.8",
+        "js": "0.0.8/libs-presentation-card-item-player",
+        "css": "0.0.8/libs-presentation-card-item-player",
+        "dependencies": [
+          "react",
+          "react-dom",
+          "libs-player-ui-components"
+        ]
       },
-      "spreadsheet-presentation-player": {
-        "baseURL": "https://sdk-qa.leonardodls.com/modules/spreadsheet-presentation-player/releases/",
-        "version": "0.7.5",
-        "js": "0.7.5/libs-spr-presentation-item-player.min",
-        "css": "0.7.5/libs-spr-presentation-item-player.min"
+      "react": {
+        "baseURL": "https://sdk-qa.leonardodls.com/modules/react/releases/",
+        "version": "16.12.0",
+        "js": "16.12.0/react.development"
       },
-      "jquery": {
-        "js": "https://sdk-qa.s3.us-east-2.amazonaws.com/modules/jquery/releases/3.1.1/jquery-3.1.1"
+      "react-dom": {
+        "baseURL": "https://sdk-qa.leonardodls.com/modules/react-dom/releases/",
+        "version": "16.12.0",
+        "js": "16.12.0/react-dom.development"
+      },
+      "libs-player-ui-components": {
+        "baseURL": "https://sdk-qa.leonardodls.com/modules/libs-player-ui-components/releases/",
+        "version": "0.0.16",
+        "js": "0.0.16/libs-player-ui-components"
       }
     }
   }
