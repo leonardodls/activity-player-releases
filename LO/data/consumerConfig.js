@@ -19,10 +19,10 @@ var consumerConfig = {
     ],
     "modules": {
       "test-player": {
-        "baseURL": "https://sdk-qa.leonardodls.com/modules/multi-item-activity-player/releases/",
+        "baseURL": "https://leonardodls.github.io/activity-player-releases/multi-item-activity-player/",
         "version": "0.0.28",
-        "js": "0.0.28/multiItemActivityPlayer",
-        "css": "0.0.28/multiItemActivityPlayer"
+        "js": "multiItemActivityPlayer",
+        "css": "multiItemActivityPlayer"
       },
       "spreadsheet-question-player": {
         "baseURL": "https://sdk-qa.leonardodls.com/modules/spreadsheet-question-player/releases/",
