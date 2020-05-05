@@ -25,10 +25,10 @@ var consumerConfig = {
         "css": "multiItemActivityPlayer"
       },
       "spreadsheet-question-player": {
-        "baseURL": "https://sdk-qa.leonardodls.com/modules/spreadsheet-question-player/releases/",
+        "baseURL": "https://leonardodls.github.io/activity-player-releases/leonardo-item-player/",
         "version": "0.7.6",
-        "js": "0.7.6/libs-spr-question-item-player.min",
-        "css": "0.7.6/libs-spr-question-item-player.min",
+        "js": "libs-spr-question-item-player.min",
+        "css": "libs-spr-question-item-player.min",
         "dependencies": ["jquery"]
       },
       "spreadsheet-presentation-player": {
