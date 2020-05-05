@@ -116,6 +116,8 @@
 				activity.retry(retryCallback.bind(this));
 			} else if (params.type === 'reset') {
 				activity.reset();
+			} else if (params.type === 'displayFeedback') {
+				activity.displayFeedback(params.score);
 			} else if (params.hasOwnProperty('type')) {
 				throw { error: "method_not_found", message: 'method not found' };
 			} else {
