@@ -117,7 +117,7 @@
 			} else if (params.type === 'reset') {
 				activity.reset();
 			} else if (params.type === 'displayFeedback') {
-				activity.displayFeedback(params.score);
+				activity.displayFeedback(params.meta.data);
 			} else if (params.hasOwnProperty('type')) {
 				throw { error: "method_not_found", message: 'method not found' };
 			} else {
